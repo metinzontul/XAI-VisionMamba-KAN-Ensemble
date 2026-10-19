@@ -1,0 +1,29 @@
+# XAI-VisionMamba-KAN-Ensemble Dependencies
+# Author: Prof. Dr. Metin Zontul
+# Date: October 2026
+
+# Core Deep Learning
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Explainable AI (XAI)
+captum>=0.7.0
+
+# Machine Learning & Cross Validation
+scikit-learn>=1.3.0
+
+# Data Manipulation & Scientific Computing
+numpy>=1.24.0
+
+# Image Processing & Visualization
+Pillow>=10.0.0
+matplotlib>=3.7.0
+
+# Utilities
+tqdm>=4.65.0
+
+# --- State-Space Models (Optional / CUDA Required) ---
+# Uncomment these if you are compiling the official hardware-aware 
+# Mamba blocks (requires NVCC / CUDA toolkit installed)
+# causal-conv1d>=1.1.0
+# mamba-ssm>=1.1.1
