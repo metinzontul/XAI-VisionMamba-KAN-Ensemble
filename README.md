@@ -72,6 +72,18 @@ python src/get_xai_maps.py
 ```
 The resulting feature attribution overlays will be saved in `logs/xai_heatmaps/`.
 
+## 🔍 Explainability (XAI) Comparison: KAN vs. Standard MLP
+
+To demonstrate the superior localized feature attribution of our proposed B-Spline KAN classification head, we applied Axiomatic Integrated Gradients (IG). The resulting heatmaps clearly show how the KAN head mathematically isolates micro-textures and capillary veins, unlike the diffuse global focus of the standard Vision Mamba or MLP heads.
+
+| Architecture | Medium1 Class Example | Wanlut1 Class Example |
+| :---: | :---: | :---: |
+| **Pure Vision Mamba (Vim)**<br>*(Global Focus / Diffuse)* | <img src="logs/xai_heatmaps/IG_Mamba_Medium1.png" width="250"> | <img src="logs/xai_heatmaps/IG_Mamba_Wanlut1.png" width="250"> |
+| **Hybrid ResNet-Mamba-MLP**<br>*(Standard Head / Generic)* | <img src="logs/xai_heatmaps/IG_Hybrid_MLP_Medium1.png" width="250"> | <img src="logs/xai_heatmaps/IG_Hybrid_MLP_Wanlut1.png" width="250"> |
+| **Hybrid ResNet-Mamba-KAN**<br>*(Proposed / Hyper-Localized)* | <img src="logs/xai_heatmaps/IG_Hybrid_KAN_Medium1.png" width="250"> | <img src="logs/xai_heatmaps/IG_Hybrid_KAN_Wanlut1.png" width="250"> |
+
+*Note: These visual proofs correspond to **Figure 6** of our manuscript.*
+
 ## 📜 Citation
 
 If you find this code or our conceptual framework useful in your research, please consider citing our paper:
