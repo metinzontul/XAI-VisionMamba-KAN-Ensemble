@@ -1,0 +1,272 @@
+(dfm_kan_env) C:\Users\ASUS-WORKSTATION\Desktop\metin\Oğuz\src>python master_ablation_eval.py
+Not running in Colab. Weights will be saved locally.
+
+==========================================================================================
+[*] INITIALIZING MASTER ABLATION EVALUATION PIPELINE (STRICT VALIDATION MODE)
+[*] Compute Device: cuda
+==========================================================================================
+
+[*] Full dataset loaded from: '../dataset/Marble'
+[*] Total samples: 996 | Classes (6): ['Medium1', 'Medium2', 'Wanlut1', 'Wanlut2', 'White1', 'White2']
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+==========================================================================================
+[>>>] BENCHMARKING MODEL: ResNet-Mamba-KAN
+==========================================================================================
+ -> [S42_F1] | Samples: 200 | Acc: 92.00% | Prec: 92.54% | Rec: 92.62% | F1: 92.58% | AUC: 99.08%
+ -> [S42_F2] | Samples: 199 | Acc: 91.96% | Prec: 92.22% | Rec: 92.43% | F1: 92.13% | AUC: 99.38%
+ -> [S42_F3] | Samples: 199 | Acc: 94.47% | Prec: 94.81% | Rec: 94.94% | F1: 94.82% | AUC: 99.48%
+ -> [S42_F4] | Samples: 199 | Acc: 91.46% | Prec: 92.07% | Rec: 91.91% | F1: 91.72% | AUC: 98.77%
+ -> [S42_F5] | Samples: 199 | Acc: 94.47% | Prec: 94.64% | Rec: 95.13% | F1: 94.73% | AUC: 99.49%
+ -> [S1024_F1] | Samples: 200 | Acc: 90.00% | Prec: 91.06% | Rec: 89.98% | F1: 90.34% | AUC: 99.08%
+ -> [S1024_F2] | Samples: 199 | Acc: 94.47% | Prec: 95.34% | Rec: 94.32% | F1: 94.65% | AUC: 99.68%
+ -> [S1024_F3] | Samples: 199 | Acc: 90.45% | Prec: 91.17% | Rec: 91.61% | F1: 91.01% | AUC: 99.07%
+ -> [S1024_F4] | Samples: 199 | Acc: 90.95% | Prec: 92.45% | Rec: 91.28% | F1: 91.58% | AUC: 99.26%
+ -> [S1024_F5] | Samples: 199 | Acc: 91.46% | Prec: 92.20% | Rec: 91.44% | F1: 91.69% | AUC: 98.91%
+ -> [S2026_F1] | Samples: 200 | Acc: 91.00% | Prec: 92.37% | Rec: 91.35% | F1: 91.68% | AUC: 99.12%
+ -> [S2026_F2] | Samples: 199 | Acc: 90.95% | Prec: 91.47% | Rec: 91.43% | F1: 91.40% | AUC: 98.66%
+ -> [S2026_F3] | Samples: 199 | Acc: 92.96% | Prec: 93.04% | Rec: 93.69% | F1: 93.11% | AUC: 99.46%
+ -> [S2026_F4] | Samples: 199 | Acc: 91.96% | Prec: 93.02% | Rec: 92.25% | F1: 92.48% | AUC: 99.38%
+ -> [S2026_F5] | Samples: 199 | Acc: 90.95% | Prec: 91.88% | Rec: 90.77% | F1: 91.06% | AUC: 98.68%
+
+[+] CHAMPION CONFIGURATION IDENTIFIED: S42_F3 (Macro F1: 94.82%)
+[*] Confusion matrix exported at 600 DPI: 'plots/CM_ResNet-Mamba-KAN.png'
+
+==========================================================================================
+[>>>] BENCHMARKING MODEL: ResNet-Mamba-MLP
+==========================================================================================
+ -> [S42_F1] | Samples: 200 | Acc: 90.50% | Prec: 91.25% | Rec: 91.33% | F1: 91.01% | AUC: 98.97%
+ -> [S42_F2] | Samples: 199 | Acc: 93.97% | Prec: 94.59% | Rec: 93.99% | F1: 94.08% | AUC: 99.04%
+ -> [S42_F3] | Samples: 199 | Acc: 96.48% | Prec: 96.74% | Rec: 96.83% | F1: 96.76% | AUC: 99.44%
+ -> [S42_F4] | Samples: 199 | Acc: 93.97% | Prec: 94.42% | Rec: 94.09% | F1: 94.15% | AUC: 99.53%
+ -> [S42_F5] | Samples: 199 | Acc: 92.46% | Prec: 93.00% | Rec: 92.84% | F1: 92.86% | AUC: 99.28%
+ -> [S1024_F1] | Samples: 200 | Acc: 92.00% | Prec: 92.67% | Rec: 92.34% | F1: 92.23% | AUC: 99.25%
+ -> [S1024_F2] | Samples: 199 | Acc: 92.96% | Prec: 93.94% | Rec: 93.07% | F1: 93.07% | AUC: 99.37%
+ -> [S1024_F3] | Samples: 199 | Acc: 91.96% | Prec: 92.35% | Rec: 92.91% | F1: 92.33% | AUC: 99.25%
+ -> [S1024_F4] | Samples: 199 | Acc: 91.46% | Prec: 91.59% | Rec: 92.05% | F1: 91.70% | AUC: 99.17%
+ -> [S1024_F5] | Samples: 199 | Acc: 95.48% | Prec: 95.75% | Rec: 95.50% | F1: 95.56% | AUC: 99.43%
+ -> [S2026_F1] | Samples: 200 | Acc: 93.50% | Prec: 94.16% | Rec: 93.71% | F1: 93.89% | AUC: 99.48%
+ -> [S2026_F2] | Samples: 199 | Acc: 90.95% | Prec: 91.85% | Rec: 91.89% | F1: 91.55% | AUC: 98.79%
+ -> [S2026_F3] | Samples: 199 | Acc: 91.96% | Prec: 92.62% | Rec: 91.89% | F1: 92.09% | AUC: 99.42%
+ -> [S2026_F4] | Samples: 199 | Acc: 91.46% | Prec: 91.70% | Rec: 91.93% | F1: 91.77% | AUC: 99.03%
+ -> [S2026_F5] | Samples: 199 | Acc: 92.96% | Prec: 94.27% | Rec: 91.97% | F1: 92.31% | AUC: 99.31%
+
+[+] CHAMPION CONFIGURATION IDENTIFIED: S42_F3 (Macro F1: 96.76%)
+[*] Confusion matrix exported at 600 DPI: 'plots/CM_ResNet-Mamba-MLP.png'
+
+==========================================================================================
+[>>>] BENCHMARKING MODEL: Early-Hybrid
+==========================================================================================
+ -> [S42_F1] | Samples: 200 | Acc: 87.50% | Prec: 87.91% | Rec: 88.34% | F1: 87.89% | AUC: 98.47%
+ -> [S42_F2] | Samples: 199 | Acc: 89.95% | Prec: 90.60% | Rec: 90.32% | F1: 90.01% | AUC: 98.91%
+ -> [S42_F3] | Samples: 199 | Acc: 93.47% | Prec: 94.04% | Rec: 93.74% | F1: 93.88% | AUC: 99.28%
+ -> [S42_F4] | Samples: 199 | Acc: 87.44% | Prec: 88.31% | Rec: 87.86% | F1: 87.65% | AUC: 98.31%
+ -> [S42_F5] | Samples: 199 | Acc: 88.94% | Prec: 89.95% | Rec: 89.47% | F1: 89.52% | AUC: 98.85%
+ -> [S1024_F1] | Samples: 200 | Acc: 89.00% | Prec: 89.93% | Rec: 88.90% | F1: 89.19% | AUC: 99.06%
+ -> [S1024_F2] | Samples: 199 | Acc: 92.46% | Prec: 92.88% | Rec: 93.07% | F1: 92.67% | AUC: 99.22%
+ -> [S1024_F3] | Samples: 199 | Acc: 87.44% | Prec: 88.69% | Rec: 88.83% | F1: 87.92% | AUC: 98.70%
+ -> [S1024_F4] | Samples: 199 | Acc: 89.45% | Prec: 89.75% | Rec: 89.98% | F1: 89.78% | AUC: 98.50%
+ -> [S1024_F5] | Samples: 199 | Acc: 88.44% | Prec: 90.91% | Rec: 88.91% | F1: 89.21% | AUC: 98.69%
+ -> [S2026_F1] | Samples: 200 | Acc: 89.50% | Prec: 90.05% | Rec: 90.48% | F1: 90.08% | AUC: 99.05%
+ -> [S2026_F2] | Samples: 199 | Acc: 88.44% | Prec: 89.42% | Rec: 89.11% | F1: 88.88% | AUC: 98.72%
+ -> [S2026_F3] | Samples: 199 | Acc: 91.96% | Prec: 92.21% | Rec: 92.56% | F1: 92.28% | AUC: 99.24%
+ -> [S2026_F4] | Samples: 199 | Acc: 89.45% | Prec: 89.82% | Rec: 89.89% | F1: 89.60% | AUC: 98.86%
+ -> [S2026_F5] | Samples: 199 | Acc: 90.95% | Prec: 91.60% | Rec: 90.54% | F1: 90.78% | AUC: 98.99%
+
+[+] CHAMPION CONFIGURATION IDENTIFIED: S42_F3 (Macro F1: 93.88%)
+[*] Confusion matrix exported at 600 DPI: 'plots/CM_Early-Hybrid.png'
+
+==========================================================================================
+[>>>] BENCHMARKING MODEL: Vision Mamba
+==========================================================================================
+ -> [S42_F1] | Samples: 200 | Acc: 93.00% | Prec: 93.81% | Rec: 93.18% | F1: 93.44% | AUC: 99.21%
+ -> [S42_F2] | Samples: 199 | Acc: 93.47% | Prec: 93.45% | Rec: 93.57% | F1: 93.50% | AUC: 99.45%
+ -> [S42_F3] | Samples: 199 | Acc: 93.47% | Prec: 93.74% | Rec: 93.87% | F1: 93.72% | AUC: 99.60%
+ -> [S42_F4] | Samples: 199 | Acc: 95.48% | Prec: 95.73% | Rec: 95.47% | F1: 95.56% | AUC: 99.33%
+ -> [S42_F5] | Samples: 199 | Acc: 93.97% | Prec: 94.39% | Rec: 94.34% | F1: 94.36% | AUC: 99.27%
+ -> [S1024_F1] | Samples: 200 | Acc: 95.50% | Prec: 96.12% | Rec: 95.74% | F1: 95.69% | AUC: 99.26%
+ -> [S1024_F2] | Samples: 199 | Acc: 94.47% | Prec: 94.78% | Rec: 94.91% | F1: 94.83% | AUC: 99.56%
+ -> [S1024_F3] | Samples: 199 | Acc: 90.45% | Prec: 91.00% | Rec: 91.29% | F1: 91.01% | AUC: 98.85%
+ -> [S1024_F4] | Samples: 199 | Acc: 93.97% | Prec: 94.48% | Rec: 94.25% | F1: 94.21% | AUC: 99.52%
+ -> [S1024_F5] | Samples: 199 | Acc: 92.96% | Prec: 93.21% | Rec: 92.99% | F1: 93.07% | AUC: 99.33%
+ -> [S2026_F1] | Samples: 200 | Acc: 94.50% | Prec: 95.43% | Rec: 94.80% | F1: 94.91% | AUC: 99.58%
+ -> [S2026_F2] | Samples: 199 | Acc: 93.97% | Prec: 94.11% | Rec: 94.56% | F1: 94.24% | AUC: 99.36%
+ -> [S2026_F3] | Samples: 199 | Acc: 95.48% | Prec: 95.64% | Rec: 95.64% | F1: 95.59% | AUC: 99.37%
+ -> [S2026_F4] | Samples: 199 | Acc: 94.97% | Prec: 95.56% | Rec: 95.17% | F1: 95.27% | AUC: 99.59%
+ -> [S2026_F5] | Samples: 199 | Acc: 91.96% | Prec: 92.17% | Rec: 91.62% | F1: 91.77% | AUC: 99.12%
+
+[+] CHAMPION CONFIGURATION IDENTIFIED: S1024_F1 (Macro F1: 95.69%)
+[*] Confusion matrix exported at 600 DPI: 'plots/CM_Vision_Mamba.png'
+
+==========================================================================================
+[>>>] BENCHMARKING MODEL: ResNet-KAN
+==========================================================================================
+ -> [S42_F1] | Samples: 200 | Acc: 90.50% | Prec: 91.20% | Rec: 90.88% | F1: 90.97% | AUC: 98.65%
+ -> [S42_F2] | Samples: 199 | Acc: 87.44% | Prec: 87.81% | Rec: 87.86% | F1: 87.58% | AUC: 98.48%
+ -> [S42_F3] | Samples: 199 | Acc: 91.46% | Prec: 92.29% | Rec: 91.69% | F1: 91.93% | AUC: 98.92%
+ -> [S42_F4] | Samples: 199 | Acc: 88.44% | Prec: 89.35% | Rec: 88.54% | F1: 88.61% | AUC: 98.56%
+ -> [S42_F5] | Samples: 199 | Acc: 90.95% | Prec: 91.20% | Rec: 91.38% | F1: 91.23% | AUC: 99.07%
+ -> [S1024_F1] | Samples: 200 | Acc: 89.50% | Prec: 90.71% | Rec: 89.72% | F1: 89.92% | AUC: 98.14%
+ -> [S1024_F2] | Samples: 199 | Acc: 87.44% | Prec: 87.98% | Rec: 88.32% | F1: 88.05% | AUC: 98.27%
+ -> [S1024_F3] | Samples: 199 | Acc: 89.95% | Prec: 90.14% | Rec: 90.21% | F1: 89.95% | AUC: 98.64%
+ -> [S1024_F4] | Samples: 199 | Acc: 91.46% | Prec: 91.60% | Rec: 91.75% | F1: 91.63% | AUC: 99.20%
+ -> [S1024_F5] | Samples: 199 | Acc: 88.44% | Prec: 88.70% | Rec: 89.03% | F1: 88.32% | AUC: 98.78%
+ -> [S2026_F1] | Samples: 200 | Acc: 89.50% | Prec: 89.87% | Rec: 90.10% | F1: 89.90% | AUC: 99.06%
+ -> [S2026_F2] | Samples: 199 | Acc: 87.44% | Prec: 88.07% | Rec: 88.68% | F1: 87.93% | AUC: 98.45%
+ -> [S2026_F3] | Samples: 199 | Acc: 84.92% | Prec: 86.08% | Rec: 85.80% | F1: 85.43% | AUC: 98.04%
+ -> [S2026_F4] | Samples: 199 | Acc: 89.45% | Prec: 90.16% | Rec: 89.63% | F1: 89.56% | AUC: 98.72%
+ -> [S2026_F5] | Samples: 199 | Acc: 88.94% | Prec: 89.80% | Rec: 88.89% | F1: 89.05% | AUC: 98.32%
+
+[+] CHAMPION CONFIGURATION IDENTIFIED: S42_F3 (Macro F1: 91.93%)
+[*] Confusion matrix exported at 600 DPI: 'plots/CM_ResNet-KAN.png'
+
+==========================================================================================
+[>>>] BENCHMARKING MODEL: ResNet-MLP
+==========================================================================================
+ -> [S42_F1] | Samples: 200 | Acc: 88.00% | Prec: 88.64% | Rec: 88.58% | F1: 88.61% | AUC: 98.52%
+ -> [S42_F2] | Samples: 199 | Acc: 90.45% | Prec: 90.71% | Rec: 90.79% | F1: 90.70% | AUC: 98.45%
+ -> [S42_F3] | Samples: 199 | Acc: 91.46% | Prec: 92.39% | Rec: 91.39% | F1: 91.75% | AUC: 98.75%
+ -> [S42_F4] | Samples: 199 | Acc: 87.44% | Prec: 87.61% | Rec: 88.07% | F1: 87.66% | AUC: 98.04%
+ -> [S42_F5] | Samples: 199 | Acc: 92.46% | Prec: 92.83% | Rec: 92.88% | F1: 92.83% | AUC: 99.13%
+ -> [S1024_F1] | Samples: 200 | Acc: 89.00% | Prec: 90.33% | Rec: 89.70% | F1: 89.16% | AUC: 98.68%
+ -> [S1024_F2] | Samples: 199 | Acc: 88.44% | Prec: 88.94% | Rec: 89.14% | F1: 88.98% | AUC: 98.37%
+ -> [S1024_F3] | Samples: 199 | Acc: 89.45% | Prec: 90.07% | Rec: 90.17% | F1: 89.72% | AUC: 98.91%
+ -> [S1024_F4] | Samples: 199 | Acc: 90.45% | Prec: 90.90% | Rec: 90.62% | F1: 90.71% | AUC: 98.66%
+ -> [S1024_F5] | Samples: 199 | Acc: 87.94% | Prec: 88.71% | Rec: 87.97% | F1: 88.14% | AUC: 98.49%
+ -> [S2026_F1] | Samples: 200 | Acc: 91.00% | Prec: 91.22% | Rec: 91.37% | F1: 91.28% | AUC: 98.69%
+ -> [S2026_F2] | Samples: 199 | Acc: 88.44% | Prec: 89.22% | Rec: 89.07% | F1: 89.10% | AUC: 98.51%
+ -> [S2026_F3] | Samples: 199 | Acc: 91.46% | Prec: 92.12% | Rec: 91.85% | F1: 91.95% | AUC: 98.94%
+ -> [S2026_F4] | Samples: 199 | Acc: 90.45% | Prec: 92.06% | Rec: 90.52% | F1: 90.88% | AUC: 98.65%
+ -> [S2026_F5] | Samples: 199 | Acc: 87.44% | Prec: 87.71% | Rec: 87.38% | F1: 87.47% | AUC: 98.21%
+
+[+] CHAMPION CONFIGURATION IDENTIFIED: S42_F5 (Macro F1: 92.83%)
+[*] Confusion matrix exported at 600 DPI: 'plots/CM_ResNet-MLP.png'
+
+==========================================================================================
+[>>>] BENCHMARKING MODEL: ViT-KAN-Head
+==========================================================================================
+ -> [S42_F1] | Samples: 200 | Acc: 87.50% | Prec: 88.93% | Rec: 87.24% | F1: 87.56% | AUC: 98.15%
+ -> [S42_F2] | Samples: 199 | Acc: 88.44% | Prec: 88.67% | Rec: 88.94% | F1: 88.72% | AUC: 98.77%
+ -> [S42_F3] | Samples: 199 | Acc: 88.44% | Prec: 89.72% | Rec: 88.30% | F1: 88.49% | AUC: 98.71%
+ -> [S42_F4] | Samples: 199 | Acc: 88.94% | Prec: 90.07% | Rec: 88.37% | F1: 88.59% | AUC: 98.73%
+ -> [S42_F5] | Samples: 199 | Acc: 92.46% | Prec: 92.66% | Rec: 92.90% | F1: 92.71% | AUC: 99.36%
+ -> [S1024_F1] | Samples: 200 | Acc: 88.50% | Prec: 89.22% | Rec: 88.64% | F1: 88.80% | AUC: 98.61%
+ -> [S1024_F2] | Samples: 199 | Acc: 92.96% | Prec: 93.39% | Rec: 93.35% | F1: 93.27% | AUC: 99.13%
+ -> [S1024_F3] | Samples: 199 | Acc: 88.44% | Prec: 89.01% | Rec: 89.31% | F1: 88.85% | AUC: 99.02%
+ -> [S1024_F4] | Samples: 199 | Acc: 88.44% | Prec: 89.45% | Rec: 88.34% | F1: 88.49% | AUC: 98.68%
+ -> [S1024_F5] | Samples: 199 | Acc: 88.44% | Prec: 90.33% | Rec: 88.25% | F1: 88.68% | AUC: 98.16%
+ -> [S2026_F1] | Samples: 200 | Acc: 90.00% | Prec: 90.58% | Rec: 89.92% | F1: 90.13% | AUC: 98.83%
+ -> [S2026_F2] | Samples: 199 | Acc: 87.44% | Prec: 88.02% | Rec: 88.69% | F1: 88.01% | AUC: 98.53%
+ -> [S2026_F3] | Samples: 199 | Acc: 88.44% | Prec: 90.47% | Rec: 87.93% | F1: 88.40% | AUC: 98.43%
+ -> [S2026_F4] | Samples: 199 | Acc: 89.95% | Prec: 90.58% | Rec: 90.60% | F1: 90.40% | AUC: 98.57%
+ -> [S2026_F5] | Samples: 199 | Acc: 88.44% | Prec: 89.48% | Rec: 87.96% | F1: 88.30% | AUC: 98.55%
+
+[+] CHAMPION CONFIGURATION IDENTIFIED: S1024_F2 (Macro F1: 93.27%)
+[*] Confusion matrix exported at 600 DPI: 'plots/CM_ViT-KAN-Head.png'
+
+==========================================================================================
+[>>>] BENCHMARKING MODEL: ViT-ResNet-KAN
+==========================================================================================
+ -> [S42_F1] | Samples: 200 | Acc: 92.50% | Prec: 93.15% | Rec: 92.73% | F1: 92.87% | AUC: 98.91%
+ -> [S42_F2] | Samples: 199 | Acc: 89.95% | Prec: 91.22% | Rec: 90.59% | F1: 90.13% | AUC: 99.08%
+ -> [S42_F3] | Samples: 199 | Acc: 92.96% | Prec: 93.12% | Rec: 93.47% | F1: 93.20% | AUC: 98.97%
+ -> [S42_F4] | Samples: 199 | Acc: 87.94% | Prec: 88.33% | Rec: 88.11% | F1: 88.06% | AUC: 98.60%
+ -> [S42_F5] | Samples: 199 | Acc: 89.95% | Prec: 90.58% | Rec: 90.23% | F1: 90.26% | AUC: 98.73%
+ -> [S1024_F1] | Samples: 200 | Acc: 91.50% | Prec: 91.85% | Rec: 91.90% | F1: 91.82% | AUC: 99.14%
+ -> [S1024_F2] | Samples: 199 | Acc: 89.95% | Prec: 90.80% | Rec: 90.57% | F1: 90.39% | AUC: 98.82%
+ -> [S1024_F3] | Samples: 199 | Acc: 92.96% | Prec: 93.42% | Rec: 93.28% | F1: 93.19% | AUC: 99.44%
+ -> [S1024_F4] | Samples: 199 | Acc: 90.45% | Prec: 90.60% | Rec: 90.75% | F1: 90.62% | AUC: 99.10%
+ -> [S1024_F5] | Samples: 199 | Acc: 88.94% | Prec: 90.12% | Rec: 88.76% | F1: 88.83% | AUC: 98.57%
+ -> [S2026_F1] | Samples: 200 | Acc: 90.50% | Prec: 90.82% | Rec: 91.08% | F1: 90.88% | AUC: 98.93%
+ -> [S2026_F2] | Samples: 199 | Acc: 88.94% | Prec: 89.39% | Rec: 89.77% | F1: 89.41% | AUC: 98.67%
+ -> [S2026_F3] | Samples: 199 | Acc: 88.94% | Prec: 89.80% | Rec: 89.37% | F1: 89.53% | AUC: 98.67%
+ -> [S2026_F4] | Samples: 199 | Acc: 88.44% | Prec: 88.91% | Rec: 88.98% | F1: 88.89% | AUC: 98.48%
+ -> [S2026_F5] | Samples: 199 | Acc: 88.44% | Prec: 88.62% | Rec: 88.96% | F1: 88.65% | AUC: 98.67%
+
+[+] CHAMPION CONFIGURATION IDENTIFIED: S42_F3 (Macro F1: 93.20%)
+[*] Confusion matrix exported at 600 DPI: 'plots/CM_ViT-ResNet-KAN.png'
+
+==========================================================================================
+[>>>] BENCHMARKING MODEL: ViT-ResNet-MLP
+==========================================================================================
+ -> [S42_F1] | Samples: 200 | Acc: 91.50% | Prec: 92.11% | Rec: 91.59% | F1: 91.46% | AUC: 98.94%
+ -> [S42_F2] | Samples: 199 | Acc: 90.95% | Prec: 91.30% | Rec: 91.23% | F1: 91.21% | AUC: 99.28%
+ -> [S42_F3] | Samples: 199 | Acc: 91.96% | Prec: 92.15% | Rec: 92.59% | F1: 92.20% | AUC: 99.56%
+ -> [S42_F4] | Samples: 199 | Acc: 93.97% | Prec: 94.10% | Rec: 94.46% | F1: 94.14% | AUC: 99.39%
+ -> [S42_F5] | Samples: 199 | Acc: 91.46% | Prec: 92.76% | Rec: 91.48% | F1: 91.80% | AUC: 99.10%
+ -> [S1024_F1] | Samples: 200 | Acc: 91.50% | Prec: 92.18% | Rec: 91.72% | F1: 91.86% | AUC: 98.90%
+ -> [S1024_F2] | Samples: 199 | Acc: 93.47% | Prec: 94.05% | Rec: 93.38% | F1: 93.59% | AUC: 99.55%
+ -> [S1024_F3] | Samples: 199 | Acc: 90.45% | Prec: 91.32% | Rec: 91.05% | F1: 90.84% | AUC: 99.01%
+ -> [S1024_F4] | Samples: 199 | Acc: 90.45% | Prec: 90.70% | Rec: 91.18% | F1: 90.85% | AUC: 98.76%
+ -> [S1024_F5] | Samples: 199 | Acc: 89.95% | Prec: 90.80% | Rec: 89.99% | F1: 90.29% | AUC: 98.79%
+ -> [S2026_F1] | Samples: 200 | Acc: 93.00% | Prec: 93.64% | Rec: 93.42% | F1: 93.37% | AUC: 99.43%
+ -> [S2026_F2] | Samples: 199 | Acc: 91.46% | Prec: 91.94% | Rec: 92.32% | F1: 91.89% | AUC: 99.34%
+ -> [S2026_F3] | Samples: 199 | Acc: 90.95% | Prec: 92.66% | Rec: 90.40% | F1: 90.90% | AUC: 99.11%
+ -> [S2026_F4] | Samples: 199 | Acc: 91.46% | Prec: 91.68% | Rec: 91.95% | F1: 91.63% | AUC: 99.48%
+ -> [S2026_F5] | Samples: 199 | Acc: 90.45% | Prec: 91.24% | Rec: 89.50% | F1: 89.79% | AUC: 99.18%
+
+[+] CHAMPION CONFIGURATION IDENTIFIED: S42_F4 (Macro F1: 94.14%)
+[*] Confusion matrix exported at 600 DPI: 'plots/CM_ViT-ResNet-MLP.png'
+
+==========================================================================================
+[>>>] BENCHMARKING MODEL: ViT-KAN
+==========================================================================================
+ -> [S42_F1] | Samples: 200 | Acc: 69.50% | Prec: 72.20% | Rec: 69.47% | F1: 69.32% | AUC: 90.35%
+ -> [S42_F2] | Samples: 199 | Acc: 67.34% | Prec: 69.19% | Rec: 68.50% | F1: 67.99% | AUC: 91.37%
+ -> [S42_F3] | Samples: 199 | Acc: 67.34% | Prec: 69.30% | Rec: 69.10% | F1: 67.88% | AUC: 91.21%
+ -> [S42_F4] | Samples: 199 | Acc: 68.84% | Prec: 71.10% | Rec: 69.20% | F1: 69.50% | AUC: 91.39%
+ -> [S42_F5] | Samples: 199 | Acc: 76.88% | Prec: 78.09% | Rec: 77.62% | F1: 77.67% | AUC: 94.02%
+ -> [S1024_F1] | Samples: 200 | Acc: 69.50% | Prec: 73.00% | Rec: 70.91% | F1: 70.10% | AUC: 91.05%
+ -> [S1024_F2] | Samples: 199 | Acc: 66.33% | Prec: 69.35% | Rec: 67.47% | F1: 67.69% | AUC: 89.65%
+ -> [S1024_F3] | Samples: 199 | Acc: 72.36% | Prec: 75.05% | Rec: 71.84% | F1: 72.10% | AUC: 93.07%
+ -> [S1024_F4] | Samples: 199 | Acc: 70.35% | Prec: 72.16% | Rec: 69.47% | F1: 67.54% | AUC: 91.96%
+ -> [S1024_F5] | Samples: 199 | Acc: 72.86% | Prec: 79.42% | Rec: 72.38% | F1: 73.12% | AUC: 92.44%
+ -> [S2026_F1] | Samples: 200 | Acc: 74.50% | Prec: 75.24% | Rec: 75.08% | F1: 74.99% | AUC: 92.98%
+ -> [S2026_F2] | Samples: 199 | Acc: 63.82% | Prec: 68.01% | Rec: 64.89% | F1: 65.27% | AUC: 90.86%
+ -> [S2026_F3] | Samples: 199 | Acc: 74.87% | Prec: 75.68% | Rec: 76.56% | F1: 75.87% | AUC: 93.15%
+ -> [S2026_F4] | Samples: 199 | Acc: 67.84% | Prec: 69.35% | Rec: 68.40% | F1: 68.22% | AUC: 90.39%
+ -> [S2026_F5] | Samples: 199 | Acc: 67.84% | Prec: 72.35% | Rec: 68.04% | F1: 67.13% | AUC: 90.49%
+
+[+] CHAMPION CONFIGURATION IDENTIFIED: S42_F5 (Macro F1: 77.67%)
+[*] Confusion matrix exported at 600 DPI: 'plots/CM_ViT-KAN.png'
+
+==========================================================================================
+[>>>] BENCHMARKING MODEL: ViT-MLP
+==========================================================================================
+ -> [S42_F1] | Samples: 200 | Acc: 89.50% | Prec: 91.59% | Rec: 88.91% | F1: 89.33% | AUC: 98.66%
+ -> [S42_F2] | Samples: 199 | Acc: 89.45% | Prec: 90.09% | Rec: 90.21% | F1: 89.77% | AUC: 98.92%
+ -> [S42_F3] | Samples: 199 | Acc: 90.45% | Prec: 91.28% | Rec: 90.48% | F1: 90.77% | AUC: 99.19%
+ -> [S42_F4] | Samples: 199 | Acc: 88.44% | Prec: 88.64% | Rec: 88.42% | F1: 88.46% | AUC: 98.51%
+ -> [S42_F5] | Samples: 199 | Acc: 92.46% | Prec: 93.86% | Rec: 92.36% | F1: 92.80% | AUC: 98.86%
+ -> [S1024_F1] | Samples: 200 | Acc: 90.00% | Prec: 90.26% | Rec: 90.48% | F1: 90.31% | AUC: 98.77%
+ -> [S1024_F2] | Samples: 199 | Acc: 91.46% | Prec: 92.00% | Rec: 92.22% | F1: 91.87% | AUC: 98.74%
+ -> [S1024_F3] | Samples: 199 | Acc: 90.45% | Prec: 91.10% | Rec: 90.43% | F1: 90.66% | AUC: 99.04%
+ -> [S1024_F4] | Samples: 199 | Acc: 89.95% | Prec: 90.18% | Rec: 90.10% | F1: 90.03% | AUC: 98.60%
+ -> [S1024_F5] | Samples: 199 | Acc: 88.44% | Prec: 89.69% | Rec: 88.59% | F1: 88.75% | AUC: 98.29%
+ -> [S2026_F1] | Samples: 200 | Acc: 92.00% | Prec: 93.05% | Rec: 91.82% | F1: 92.19% | AUC: 98.95%
+ -> [S2026_F2] | Samples: 199 | Acc: 87.94% | Prec: 89.70% | Rec: 89.53% | F1: 88.36% | AUC: 98.56%
+ -> [S2026_F3] | Samples: 199 | Acc: 88.44% | Prec: 89.02% | Rec: 89.12% | F1: 88.71% | AUC: 98.57%
+ -> [S2026_F4] | Samples: 199 | Acc: 90.45% | Prec: 92.02% | Rec: 90.14% | F1: 90.74% | AUC: 98.67%
+ -> [S2026_F5] | Samples: 199 | Acc: 89.45% | Prec: 89.61% | Rec: 89.03% | F1: 89.20% | AUC: 98.75%
+
+[+] CHAMPION CONFIGURATION IDENTIFIED: S42_F5 (Macro F1: 92.80%)
+[*] Confusion matrix exported at 600 DPI: 'plots/CM_ViT-MLP.png'
+
+==========================================================================================
+>>> ABLATION STUDY: SUMMARY TABLE (CHAMPION RUNS) <<<
+==========================================================================================
+           Model Champion Weight  Accuracy  Macro Precision  Macro Recall  Macro F1-Score
+ResNet-Mamba-KAN          S42_F3  0.944724         0.948076      0.949440        0.948186
+ResNet-Mamba-MLP          S42_F3  0.964824         0.967439      0.968312        0.967643
+    Early-Hybrid          S42_F3  0.934673         0.940436      0.937374        0.938763
+    Vision Mamba	S1024_F1  0.955000         0.961154      0.957367        0.956862
+      ResNet-KAN          S42_F3  0.914573         0.922923      0.916916        0.919252
+      ResNet-MLP          S42_F5  0.924623         0.928303      0.928769        0.928275
+    ViT-KAN-Head        S1024_F2  0.929648         0.933917      0.933508        0.932677
+  ViT-ResNet-KAN          S42_F3  0.929648         0.931151      0.934678        0.932047
+  ViT-ResNet-MLP          S42_F4  0.939698         0.940985      0.944597        0.941405
+         ViT-KAN          S42_F5  0.768844         0.780852      0.776178        0.776709
+         ViT-MLP          S42_F5  0.924623         0.938553      0.923566        0.927982
+
+[*] Artifacts stored successfully: 'champion_ablation_metrics.csv', 'statistical_15_runs_data.csv', and 'plots/'

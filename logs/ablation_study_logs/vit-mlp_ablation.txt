@@ -1,0 +1,368 @@
+runfile('C:/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/src/vit-mlp_train_cv.py', wdir='C:/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/src')
+Loading Marble Dataset (For Standard ViT)...
+Success! Found a total of 996 images.
+Device in use: cuda (Standard ViT-MLP Training)
+
+==================================================
+INITIALIZING SEED: 42
+==================================================
+
+--- Fold 1/5 ---
+Epoch [1/20] - Train Loss: 0.7702, Train Acc: 47.61% | Val Loss: 0.4646, Val Acc: 59.50%
+Epoch [2/20] - Train Loss: 0.4368, Train Acc: 63.19% | Val Loss: 0.3756, Val Acc: 68.50%
+Epoch [3/20] - Train Loss: 0.2380, Train Acc: 79.27% | Val Loss: 0.1851, Val Acc: 78.00%
+Epoch [4/20] - Train Loss: 0.1907, Train Acc: 83.04% | Val Loss: 0.2329, Val Acc: 78.00%
+Epoch [5/20] - Train Loss: 0.1805, Train Acc: 82.54% | Val Loss: 0.1435, Val Acc: 83.50%
+Epoch [6/20] - Train Loss: 0.1910, Train Acc: 81.03% | Val Loss: 0.1593, Val Acc: 82.00%
+Epoch [7/20] - Train Loss: 0.1315, Train Acc: 86.56% | Val Loss: 0.1736, Val Acc: 78.50%
+Epoch [8/20] - Train Loss: 0.1310, Train Acc: 85.30% | Val Loss: 0.1934, Val Acc: 80.00%
+Epoch [9/20] - Train Loss: 0.1190, Train Acc: 88.69% | Val Loss: 0.2438, Val Acc: 77.50%
+Epoch [10/20] - Train Loss: 0.1310, Train Acc: 87.81% | Val Loss: 0.1258, Val Acc: 86.50%
+Epoch [11/20] - Train Loss: 0.1152, Train Acc: 89.45% | Val Loss: 0.1407, Val Acc: 85.50%
+Epoch [12/20] - Train Loss: 0.0753, Train Acc: 92.34% | Val Loss: 0.2101, Val Acc: 80.00%
+Epoch [13/20] - Train Loss: 0.0684, Train Acc: 92.46% | Val Loss: 0.1265, Val Acc: 89.00%
+Epoch [14/20] - Train Loss: 0.0526, Train Acc: 93.84% | Val Loss: 0.2124, Val Acc: 82.50%
+Epoch [15/20] - Train Loss: 0.0790, Train Acc: 90.58% | Val Loss: 0.1832, Val Acc: 82.00%
+Epoch [16/20] - Train Loss: 0.0447, Train Acc: 94.60% | Val Loss: 0.0954, Val Acc: 88.50%
+Epoch [17/20] - Train Loss: 0.0507, Train Acc: 94.35% | Val Loss: 0.1278, Val Acc: 89.50%
+Epoch [18/20] - Train Loss: 0.0478, Train Acc: 94.85% | Val Loss: 0.1281, Val Acc: 84.00%
+Epoch [19/20] - Train Loss: 0.0425, Train Acc: 95.60% | Val Loss: 0.1014, Val Acc: 86.50%
+Epoch [20/20] - Train Loss: 0.0546, Train Acc: 93.72% | Val Loss: 0.2172, Val Acc: 82.00%
+-> Fold 1 Completed. Best Validation Accuracy: 89.50%. Weights saved: weights/vit_mlp_seed_42_fold_1.pth
+
+--- Fold 2/5 ---
+Epoch [1/20] - Train Loss: 1.0412, Train Acc: 45.80% | Val Loss: 0.3594, Val Acc: 68.34%
+Epoch [2/20] - Train Loss: 0.3885, Train Acc: 69.26% | Val Loss: 0.3527, Val Acc: 68.84%
+Epoch [3/20] - Train Loss: 0.2436, Train Acc: 76.41% | Val Loss: 0.2735, Val Acc: 73.87%
+Epoch [4/20] - Train Loss: 0.2587, Train Acc: 78.80% | Val Loss: 0.2539, Val Acc: 76.38%
+Epoch [5/20] - Train Loss: 0.2141, Train Acc: 79.80% | Val Loss: 0.1925, Val Acc: 78.39%
+Epoch [6/20] - Train Loss: 0.1341, Train Acc: 86.83% | Val Loss: 0.1394, Val Acc: 84.42%
+Epoch [7/20] - Train Loss: 0.1233, Train Acc: 89.71% | Val Loss: 0.1743, Val Acc: 82.41%
+Epoch [8/20] - Train Loss: 0.1043, Train Acc: 87.33% | Val Loss: 0.2131, Val Acc: 79.40%
+Epoch [9/20] - Train Loss: 0.1065, Train Acc: 89.34% | Val Loss: 0.1247, Val Acc: 87.44%
+Epoch [10/20] - Train Loss: 0.1210, Train Acc: 89.34% | Val Loss: 0.1927, Val Acc: 83.92%
+Epoch [11/20] - Train Loss: 0.0767, Train Acc: 91.72% | Val Loss: 0.1388, Val Acc: 88.44%
+Epoch [12/20] - Train Loss: 0.0886, Train Acc: 91.72% | Val Loss: 0.1815, Val Acc: 82.91%
+Epoch [13/20] - Train Loss: 0.0856, Train Acc: 89.96% | Val Loss: 0.1173, Val Acc: 88.94%
+Epoch [14/20] - Train Loss: 0.0825, Train Acc: 91.97% | Val Loss: 0.1995, Val Acc: 82.41%
+Epoch [15/20] - Train Loss: 0.1153, Train Acc: 89.46% | Val Loss: 0.1278, Val Acc: 85.93%
+Epoch [16/20] - Train Loss: 0.1105, Train Acc: 88.46% | Val Loss: 0.1234, Val Acc: 87.44%
+Epoch [17/20] - Train Loss: 0.0804, Train Acc: 91.34% | Val Loss: 0.1116, Val Acc: 87.94%
+Epoch [18/20] - Train Loss: 0.0400, Train Acc: 94.98% | Val Loss: 0.1304, Val Acc: 86.93%
+Epoch [19/20] - Train Loss: 0.0420, Train Acc: 95.11% | Val Loss: 0.1537, Val Acc: 85.93%
+Epoch [20/20] - Train Loss: 0.0445, Train Acc: 94.86% | Val Loss: 0.0977, Val Acc: 89.45%
+-> Fold 2 Completed. Best Validation Accuracy: 89.45%. Weights saved: weights/vit_mlp_seed_42_fold_2.pth
+
+--- Fold 3/5 ---
+Epoch [1/20] - Train Loss: 0.7520, Train Acc: 53.58% | Val Loss: 0.2598, Val Acc: 76.38%
+Epoch [2/20] - Train Loss: 0.3272, Train Acc: 72.65% | Val Loss: 0.1689, Val Acc: 81.91%
+Epoch [3/20] - Train Loss: 0.1689, Train Acc: 83.44% | Val Loss: 0.1562, Val Acc: 83.92%
+Epoch [4/20] - Train Loss: 0.1483, Train Acc: 85.32% | Val Loss: 0.1457, Val Acc: 82.41%
+Epoch [5/20] - Train Loss: 0.1832, Train Acc: 82.43% | Val Loss: 0.1693, Val Acc: 79.40%
+Epoch [6/20] - Train Loss: 0.1799, Train Acc: 81.93% | Val Loss: 0.1240, Val Acc: 87.44%
+Epoch [7/20] - Train Loss: 0.1609, Train Acc: 82.81% | Val Loss: 0.1635, Val Acc: 82.91%
+Epoch [8/20] - Train Loss: 0.1084, Train Acc: 88.21% | Val Loss: 0.1330, Val Acc: 86.93%
+Epoch [9/20] - Train Loss: 0.1114, Train Acc: 88.96% | Val Loss: 0.1499, Val Acc: 84.92%
+Epoch [10/20] - Train Loss: 0.0722, Train Acc: 92.47% | Val Loss: 0.1180, Val Acc: 89.45%
+Epoch [11/20] - Train Loss: 0.0815, Train Acc: 92.22% | Val Loss: 0.1384, Val Acc: 85.43%
+Epoch [12/20] - Train Loss: 0.0805, Train Acc: 90.34% | Val Loss: 0.1225, Val Acc: 85.93%
+Epoch [13/20] - Train Loss: 0.0585, Train Acc: 93.22% | Val Loss: 0.0765, Val Acc: 90.45%
+Epoch [14/20] - Train Loss: 0.0497, Train Acc: 95.11% | Val Loss: 0.1047, Val Acc: 88.44%
+Epoch [15/20] - Train Loss: 0.0705, Train Acc: 93.35% | Val Loss: 0.1394, Val Acc: 86.43%
+Epoch [16/20] - Train Loss: 0.0985, Train Acc: 90.97% | Val Loss: 0.1045, Val Acc: 89.45%
+Epoch [17/20] - Train Loss: 0.0630, Train Acc: 93.73% | Val Loss: 0.1711, Val Acc: 85.93%
+Epoch [18/20] - Train Loss: 0.0272, Train Acc: 96.86% | Val Loss: 0.1610, Val Acc: 87.94%
+Epoch [19/20] - Train Loss: 0.0294, Train Acc: 97.37% | Val Loss: 0.1619, Val Acc: 86.93%
+Epoch [20/20] - Train Loss: 0.0887, Train Acc: 91.59% | Val Loss: 0.1600, Val Acc: 89.45%
+-> Fold 3 Completed. Best Validation Accuracy: 90.45%. Weights saved: weights/vit_mlp_seed_42_fold_3.pth
+
+--- Fold 4/5 ---
+Epoch [1/20] - Train Loss: 0.8658, Train Acc: 50.44% | Val Loss: 0.5106, Val Acc: 62.31%
+Epoch [2/20] - Train Loss: 0.3519, Train Acc: 71.52% | Val Loss: 0.2090, Val Acc: 79.40%
+Epoch [3/20] - Train Loss: 0.2169, Train Acc: 82.43% | Val Loss: 0.2178, Val Acc: 79.40%
+Epoch [4/20] - Train Loss: 0.1588, Train Acc: 84.19% | Val Loss: 0.3443, Val Acc: 73.37%
+Epoch [5/20] - Train Loss: 0.1989, Train Acc: 81.68% | Val Loss: 0.1740, Val Acc: 83.92%
+Epoch [6/20] - Train Loss: 0.1403, Train Acc: 85.82% | Val Loss: 0.1809, Val Acc: 79.90%
+Epoch [7/20] - Train Loss: 0.1149, Train Acc: 88.33% | Val Loss: 0.2126, Val Acc: 78.39%
+Epoch [8/20] - Train Loss: 0.0951, Train Acc: 90.34% | Val Loss: 0.2575, Val Acc: 75.38%
+Epoch [9/20] - Train Loss: 0.1219, Train Acc: 87.33% | Val Loss: 0.1964, Val Acc: 84.92%
+Epoch [10/20] - Train Loss: 0.1066, Train Acc: 89.59% | Val Loss: 0.2833, Val Acc: 75.88%
+Epoch [11/20] - Train Loss: 0.0742, Train Acc: 92.35% | Val Loss: 0.1474, Val Acc: 88.44%
+Epoch [12/20] - Train Loss: 0.0709, Train Acc: 90.59% | Val Loss: 0.1161, Val Acc: 87.94%
+Epoch [13/20] - Train Loss: 0.0814, Train Acc: 92.10% | Val Loss: 0.2114, Val Acc: 81.91%
+Epoch [14/20] - Train Loss: 0.0846, Train Acc: 90.72% | Val Loss: 0.2414, Val Acc: 79.40%
+Epoch [15/20] - Train Loss: 0.0744, Train Acc: 91.22% | Val Loss: 0.1752, Val Acc: 84.42%
+Epoch [16/20] - Train Loss: 0.0596, Train Acc: 93.85% | Val Loss: 0.1823, Val Acc: 85.93%
+Epoch [17/20] - Train Loss: 0.0550, Train Acc: 93.60% | Val Loss: 0.2126, Val Acc: 85.93%
+Epoch [18/20] - Train Loss: 0.0311, Train Acc: 96.36% | Val Loss: 0.1716, Val Acc: 87.44%
+Epoch [19/20] - Train Loss: 0.0363, Train Acc: 95.61% | Val Loss: 0.1673, Val Acc: 86.43%
+Epoch [20/20] - Train Loss: 0.0533, Train Acc: 93.60% | Val Loss: 0.1737, Val Acc: 86.43%
+-> Fold 4 Completed. Best Validation Accuracy: 88.44%. Weights saved: weights/vit_mlp_seed_42_fold_4.pth
+
+--- Fold 5/5 ---
+Epoch [1/20] - Train Loss: 0.6225, Train Acc: 55.58% | Val Loss: 0.3129, Val Acc: 71.36%
+Epoch [2/20] - Train Loss: 0.2663, Train Acc: 76.91% | Val Loss: 0.2304, Val Acc: 77.89%
+Epoch [3/20] - Train Loss: 0.2149, Train Acc: 80.43% | Val Loss: 0.1869, Val Acc: 79.40%
+Epoch [4/20] - Train Loss: 0.1591, Train Acc: 84.82% | Val Loss: 0.1557, Val Acc: 82.41%
+Epoch [5/20] - Train Loss: 0.1535, Train Acc: 84.32% | Val Loss: 0.1885, Val Acc: 82.91%
+Epoch [6/20] - Train Loss: 0.1210, Train Acc: 88.96% | Val Loss: 0.1096, Val Acc: 92.46%
+Epoch [7/20] - Train Loss: 0.1145, Train Acc: 88.58% | Val Loss: 0.1202, Val Acc: 85.43%
+Epoch [8/20] - Train Loss: 0.1665, Train Acc: 84.32% | Val Loss: 0.1741, Val Acc: 82.91%
+Epoch [9/20] - Train Loss: 0.1420, Train Acc: 87.95% | Val Loss: 0.2229, Val Acc: 72.86%
+Epoch [10/20] - Train Loss: 0.1024, Train Acc: 90.34% | Val Loss: 0.0824, Val Acc: 90.95%
+Epoch [11/20] - Train Loss: 0.0671, Train Acc: 92.72% | Val Loss: 0.1547, Val Acc: 85.93%
+Epoch [12/20] - Train Loss: 0.1057, Train Acc: 88.33% | Val Loss: 0.2123, Val Acc: 81.91%
+Epoch [13/20] - Train Loss: 0.0730, Train Acc: 91.34% | Val Loss: 0.0985, Val Acc: 89.95%
+Epoch [14/20] - Train Loss: 0.0385, Train Acc: 94.98% | Val Loss: 0.1208, Val Acc: 85.93%
+Epoch [15/20] - Train Loss: 0.0780, Train Acc: 93.60% | Val Loss: 0.1218, Val Acc: 87.44%
+Epoch [16/20] - Train Loss: 0.0951, Train Acc: 90.97% | Val Loss: 0.1183, Val Acc: 89.95%
+Epoch [17/20] - Train Loss: 0.0572, Train Acc: 94.73% | Val Loss: 0.1050, Val Acc: 88.44%
+Epoch [18/20] - Train Loss: 0.0501, Train Acc: 95.11% | Val Loss: 0.1169, Val Acc: 89.45%
+Epoch [19/20] - Train Loss: 0.0484, Train Acc: 95.23% | Val Loss: 0.1109, Val Acc: 89.95%
+Epoch [20/20] - Train Loss: 0.0604, Train Acc: 93.98% | Val Loss: 0.1334, Val Acc: 87.44%
+-> Fold 5 Completed. Best Validation Accuracy: 92.46%. Weights saved: weights/vit_mlp_seed_42_fold_5.pth
+
+==================================================
+INITIALIZING SEED: 1024
+==================================================
+
+--- Fold 1/5 ---
+Epoch [1/20] - Train Loss: 0.8617, Train Acc: 46.73% | Val Loss: 0.3949, Val Acc: 62.50%
+Epoch [2/20] - Train Loss: 0.4076, Train Acc: 66.33% | Val Loss: 0.2800, Val Acc: 74.00%
+Epoch [3/20] - Train Loss: 0.2643, Train Acc: 77.26% | Val Loss: 0.1751, Val Acc: 85.00%
+Epoch [4/20] - Train Loss: 0.2078, Train Acc: 80.78% | Val Loss: 0.1499, Val Acc: 82.50%
+Epoch [5/20] - Train Loss: 0.1981, Train Acc: 81.78% | Val Loss: 0.3001, Val Acc: 75.50%
+Epoch [6/20] - Train Loss: 0.1918, Train Acc: 82.91% | Val Loss: 0.3551, Val Acc: 70.50%
+Epoch [7/20] - Train Loss: 0.1392, Train Acc: 86.06% | Val Loss: 0.1511, Val Acc: 82.00%
+Epoch [8/20] - Train Loss: 0.1024, Train Acc: 89.57% | Val Loss: 0.1856, Val Acc: 83.50%
+Epoch [9/20] - Train Loss: 0.1114, Train Acc: 87.31% | Val Loss: 0.3088, Val Acc: 76.00%
+Epoch [10/20] - Train Loss: 0.1403, Train Acc: 88.07% | Val Loss: 0.1451, Val Acc: 84.00%
+Epoch [11/20] - Train Loss: 0.1041, Train Acc: 89.32% | Val Loss: 0.1394, Val Acc: 88.50%
+Epoch [12/20] - Train Loss: 0.0749, Train Acc: 91.83% | Val Loss: 0.1286, Val Acc: 85.50%
+Epoch [13/20] - Train Loss: 0.0707, Train Acc: 91.96% | Val Loss: 0.1550, Val Acc: 82.50%
+Epoch [14/20] - Train Loss: 0.0784, Train Acc: 92.09% | Val Loss: 0.2108, Val Acc: 83.50%
+Epoch [15/20] - Train Loss: 0.1296, Train Acc: 87.69% | Val Loss: 0.1795, Val Acc: 85.00%
+Epoch [16/20] - Train Loss: 0.0776, Train Acc: 91.83% | Val Loss: 0.1488, Val Acc: 84.50%
+Epoch [17/20] - Train Loss: 0.0462, Train Acc: 94.35% | Val Loss: 0.1082, Val Acc: 88.00%
+Epoch [18/20] - Train Loss: 0.0394, Train Acc: 95.23% | Val Loss: 0.1607, Val Acc: 83.00%
+Epoch [19/20] - Train Loss: 0.0459, Train Acc: 93.72% | Val Loss: 0.2108, Val Acc: 81.50%
+Epoch [20/20] - Train Loss: 0.0612, Train Acc: 92.84% | Val Loss: 0.1025, Val Acc: 90.00%
+-> Fold 1 Completed. Best Validation Accuracy: 90.00%. Weights saved: weights/vit_mlp_seed_1024_fold_1.pth
+
+--- Fold 2/5 ---
+Epoch [1/20] - Train Loss: 0.8203, Train Acc: 45.80% | Val Loss: 0.4322, Val Acc: 60.80%
+Epoch [2/20] - Train Loss: 0.3884, Train Acc: 67.00% | Val Loss: 0.4829, Val Acc: 61.31%
+Epoch [3/20] - Train Loss: 0.2725, Train Acc: 74.65% | Val Loss: 0.2506, Val Acc: 68.34%
+Epoch [4/20] - Train Loss: 0.2280, Train Acc: 78.42% | Val Loss: 0.1876, Val Acc: 82.41%
+Epoch [5/20] - Train Loss: 0.1681, Train Acc: 84.82% | Val Loss: 0.2272, Val Acc: 79.40%
+Epoch [6/20] - Train Loss: 0.1159, Train Acc: 89.71% | Val Loss: 0.2089, Val Acc: 80.90%
+Epoch [7/20] - Train Loss: 0.1579, Train Acc: 84.07% | Val Loss: 0.1791, Val Acc: 81.41%
+Epoch [8/20] - Train Loss: 0.1245, Train Acc: 87.20% | Val Loss: 0.1671, Val Acc: 77.89%
+Epoch [9/20] - Train Loss: 0.0972, Train Acc: 89.21% | Val Loss: 0.1709, Val Acc: 82.41%
+Epoch [10/20] - Train Loss: 0.1002, Train Acc: 89.71% | Val Loss: 0.1633, Val Acc: 84.42%
+Epoch [11/20] - Train Loss: 0.0850, Train Acc: 91.59% | Val Loss: 0.2084, Val Acc: 82.41%
+Epoch [12/20] - Train Loss: 0.1060, Train Acc: 88.83% | Val Loss: 0.1665, Val Acc: 83.42%
+Epoch [13/20] - Train Loss: 0.0808, Train Acc: 91.22% | Val Loss: 0.1109, Val Acc: 91.46%
+Epoch [14/20] - Train Loss: 0.0915, Train Acc: 90.09% | Val Loss: 0.1413, Val Acc: 85.43%
+Epoch [15/20] - Train Loss: 0.0685, Train Acc: 92.10% | Val Loss: 0.2377, Val Acc: 80.40%
+Epoch [16/20] - Train Loss: 0.1206, Train Acc: 89.46% | Val Loss: 0.1266, Val Acc: 88.94%
+Epoch [17/20] - Train Loss: 0.0668, Train Acc: 92.60% | Val Loss: 0.1162, Val Acc: 89.45%
+Epoch [18/20] - Train Loss: 0.0354, Train Acc: 95.86% | Val Loss: 0.1263, Val Acc: 89.45%
+Epoch [19/20] - Train Loss: 0.0563, Train Acc: 93.10% | Val Loss: 0.1310, Val Acc: 86.93%
+Epoch [20/20] - Train Loss: 0.0432, Train Acc: 95.23% | Val Loss: 0.1618, Val Acc: 85.93%
+-> Fold 2 Completed. Best Validation Accuracy: 91.46%. Weights saved: weights/vit_mlp_seed_1024_fold_2.pth
+
+--- Fold 3/5 ---
+Epoch [1/20] - Train Loss: 0.8342, Train Acc: 49.06% | Val Loss: 0.2576, Val Acc: 77.39%
+Epoch [2/20] - Train Loss: 0.3368, Train Acc: 71.39% | Val Loss: 0.3072, Val Acc: 68.84%
+Epoch [3/20] - Train Loss: 0.2009, Train Acc: 82.06% | Val Loss: 0.2296, Val Acc: 81.41%
+Epoch [4/20] - Train Loss: 0.1801, Train Acc: 81.93% | Val Loss: 0.1422, Val Acc: 85.93%
+Epoch [5/20] - Train Loss: 0.1928, Train Acc: 80.93% | Val Loss: 0.1781, Val Acc: 82.41%
+Epoch [6/20] - Train Loss: 0.1545, Train Acc: 85.19% | Val Loss: 0.1053, Val Acc: 86.43%
+Epoch [7/20] - Train Loss: 0.1425, Train Acc: 86.45% | Val Loss: 0.1114, Val Acc: 87.44%
+Epoch [8/20] - Train Loss: 0.1167, Train Acc: 87.20% | Val Loss: 0.1887, Val Acc: 86.43%
+Epoch [9/20] - Train Loss: 0.0871, Train Acc: 91.09% | Val Loss: 0.1132, Val Acc: 85.93%
+Epoch [10/20] - Train Loss: 0.1075, Train Acc: 90.46% | Val Loss: 0.2229, Val Acc: 81.41%
+Epoch [11/20] - Train Loss: 0.1196, Train Acc: 88.71% | Val Loss: 0.1074, Val Acc: 85.93%
+Epoch [12/20] - Train Loss: 0.0731, Train Acc: 91.72% | Val Loss: 0.1632, Val Acc: 82.91%
+Epoch [13/20] - Train Loss: 0.0720, Train Acc: 92.35% | Val Loss: 0.0894, Val Acc: 89.95%
+Epoch [14/20] - Train Loss: 0.1000, Train Acc: 89.08% | Val Loss: 0.0951, Val Acc: 86.93%
+Epoch [15/20] - Train Loss: 0.1142, Train Acc: 89.08% | Val Loss: 0.1537, Val Acc: 85.93%
+Epoch [16/20] - Train Loss: 0.0639, Train Acc: 93.60% | Val Loss: 0.1169, Val Acc: 88.44%
+Epoch [17/20] - Train Loss: 0.0406, Train Acc: 94.86% | Val Loss: 0.2622, Val Acc: 80.90%
+Epoch [18/20] - Train Loss: 0.0786, Train Acc: 93.48% | Val Loss: 0.1285, Val Acc: 88.94%
+Epoch [19/20] - Train Loss: 0.0398, Train Acc: 95.61% | Val Loss: 0.1660, Val Acc: 87.44%
+Epoch [20/20] - Train Loss: 0.0422, Train Acc: 96.11% | Val Loss: 0.0889, Val Acc: 90.45%
+-> Fold 3 Completed. Best Validation Accuracy: 90.45%. Weights saved: weights/vit_mlp_seed_1024_fold_3.pth
+
+--- Fold 4/5 ---
+Epoch [1/20] - Train Loss: 0.7840, Train Acc: 53.83% | Val Loss: 0.3787, Val Acc: 68.34%
+Epoch [2/20] - Train Loss: 0.4164, Train Acc: 65.50% | Val Loss: 0.2929, Val Acc: 72.86%
+Epoch [3/20] - Train Loss: 0.2448, Train Acc: 78.54% | Val Loss: 0.2919, Val Acc: 75.38%
+Epoch [4/20] - Train Loss: 0.2226, Train Acc: 80.43% | Val Loss: 0.1752, Val Acc: 82.91%
+Epoch [5/20] - Train Loss: 0.1688, Train Acc: 85.07% | Val Loss: 0.1616, Val Acc: 81.41%
+Epoch [6/20] - Train Loss: 0.1640, Train Acc: 83.19% | Val Loss: 0.2253, Val Acc: 80.90%
+Epoch [7/20] - Train Loss: 0.1628, Train Acc: 84.82% | Val Loss: 0.2926, Val Acc: 72.86%
+Epoch [8/20] - Train Loss: 0.1190, Train Acc: 87.08% | Val Loss: 0.1402, Val Acc: 85.93%
+Epoch [9/20] - Train Loss: 0.1122, Train Acc: 89.46% | Val Loss: 0.1907, Val Acc: 77.89%
+Epoch [10/20] - Train Loss: 0.0809, Train Acc: 90.21% | Val Loss: 0.1588, Val Acc: 83.92%
+Epoch [11/20] - Train Loss: 0.0720, Train Acc: 92.72% | Val Loss: 0.4306, Val Acc: 70.85%
+Epoch [12/20] - Train Loss: 0.1523, Train Acc: 85.70% | Val Loss: 0.1955, Val Acc: 79.90%
+Epoch [13/20] - Train Loss: 0.0883, Train Acc: 90.97% | Val Loss: 0.1509, Val Acc: 82.91%
+Epoch [14/20] - Train Loss: 0.0704, Train Acc: 92.10% | Val Loss: 0.1673, Val Acc: 86.43%
+Epoch [15/20] - Train Loss: 0.1182, Train Acc: 87.83% | Val Loss: 0.1256, Val Acc: 89.45%
+Epoch [16/20] - Train Loss: 0.0566, Train Acc: 93.73% | Val Loss: 0.1873, Val Acc: 81.41%
+Epoch [17/20] - Train Loss: 0.0564, Train Acc: 93.22% | Val Loss: 0.1666, Val Acc: 85.43%
+Epoch [18/20] - Train Loss: 0.0443, Train Acc: 95.11% | Val Loss: 0.1611, Val Acc: 86.93%
+Epoch [19/20] - Train Loss: 0.0548, Train Acc: 93.35% | Val Loss: 0.2393, Val Acc: 80.90%
+Epoch [20/20] - Train Loss: 0.0574, Train Acc: 93.35% | Val Loss: 0.1269, Val Acc: 89.95%
+-> Fold 4 Completed. Best Validation Accuracy: 89.95%. Weights saved: weights/vit_mlp_seed_1024_fold_4.pth
+
+--- Fold 5/5 ---
+Epoch [1/20] - Train Loss: 0.8064, Train Acc: 50.94% | Val Loss: 0.4204, Val Acc: 66.33%
+Epoch [2/20] - Train Loss: 0.3326, Train Acc: 71.77% | Val Loss: 0.3452, Val Acc: 70.35%
+Epoch [3/20] - Train Loss: 0.2652, Train Acc: 74.91% | Val Loss: 0.2054, Val Acc: 78.89%
+Epoch [4/20] - Train Loss: 0.1888, Train Acc: 82.81% | Val Loss: 0.1925, Val Acc: 79.40%
+Epoch [5/20] - Train Loss: 0.1606, Train Acc: 84.19% | Val Loss: 0.1595, Val Acc: 84.42%
+Epoch [6/20] - Train Loss: 0.2068, Train Acc: 80.80% | Val Loss: 0.2771, Val Acc: 77.39%
+Epoch [7/20] - Train Loss: 0.1318, Train Acc: 86.83% | Val Loss: 0.1269, Val Acc: 85.93%
+Epoch [8/20] - Train Loss: 0.1085, Train Acc: 87.95% | Val Loss: 0.1337, Val Acc: 86.43%
+Epoch [9/20] - Train Loss: 0.1054, Train Acc: 88.58% | Val Loss: 0.1848, Val Acc: 79.90%
+Epoch [10/20] - Train Loss: 0.1512, Train Acc: 83.81% | Val Loss: 0.2310, Val Acc: 75.88%
+Epoch [11/20] - Train Loss: 0.0781, Train Acc: 91.59% | Val Loss: 0.1735, Val Acc: 80.40%
+Epoch [12/20] - Train Loss: 0.0954, Train Acc: 90.34% | Val Loss: 0.1850, Val Acc: 84.92%
+Epoch [13/20] - Train Loss: 0.0822, Train Acc: 91.84% | Val Loss: 0.1342, Val Acc: 87.44%
+Epoch [14/20] - Train Loss: 0.0463, Train Acc: 94.86% | Val Loss: 0.2366, Val Acc: 78.39%
+Epoch [15/20] - Train Loss: 0.0589, Train Acc: 94.48% | Val Loss: 0.2095, Val Acc: 81.41%
+Epoch [16/20] - Train Loss: 0.0676, Train Acc: 93.60% | Val Loss: 0.1590, Val Acc: 85.43%
+Epoch [17/20] - Train Loss: 0.0426, Train Acc: 95.48% | Val Loss: 0.1121, Val Acc: 89.45%
+Epoch [18/20] - Train Loss: 0.0623, Train Acc: 93.35% | Val Loss: 0.2134, Val Acc: 81.41%
+Epoch [19/20] - Train Loss: 0.1246, Train Acc: 88.46% | Val Loss: 0.3011, Val Acc: 80.90%
+Epoch [20/20] - Train Loss: 0.0942, Train Acc: 91.47% | Val Loss: 0.1474, Val Acc: 87.44%
+-> Fold 5 Completed. Best Validation Accuracy: 89.45%. Weights saved: weights/vit_mlp_seed_1024_fold_5.pth
+
+==================================================
+INITIALIZING SEED: 2026
+==================================================
+
+--- Fold 1/5 ---
+Epoch [1/20] - Train Loss: 0.6122, Train Acc: 57.79% | Val Loss: 0.2691, Val Acc: 74.00%
+Epoch [2/20] - Train Loss: 0.2783, Train Acc: 75.00% | Val Loss: 0.2697, Val Acc: 73.50%
+Epoch [3/20] - Train Loss: 0.2517, Train Acc: 79.90% | Val Loss: 0.1547, Val Acc: 84.00%
+Epoch [4/20] - Train Loss: 0.1944, Train Acc: 82.16% | Val Loss: 0.1337, Val Acc: 86.00%
+Epoch [5/20] - Train Loss: 0.1561, Train Acc: 85.68% | Val Loss: 0.1680, Val Acc: 79.00%
+Epoch [6/20] - Train Loss: 0.1444, Train Acc: 84.67% | Val Loss: 0.1575, Val Acc: 87.00%
+Epoch [7/20] - Train Loss: 0.1379, Train Acc: 85.18% | Val Loss: 0.1617, Val Acc: 86.50%
+Epoch [8/20] - Train Loss: 0.0997, Train Acc: 88.94% | Val Loss: 0.1311, Val Acc: 89.00%
+Epoch [9/20] - Train Loss: 0.0829, Train Acc: 91.08% | Val Loss: 0.2276, Val Acc: 87.50%
+Epoch [10/20] - Train Loss: 0.0693, Train Acc: 91.71% | Val Loss: 0.1525, Val Acc: 85.50%
+Epoch [11/20] - Train Loss: 0.0863, Train Acc: 92.59% | Val Loss: 0.1576, Val Acc: 86.50%
+Epoch [12/20] - Train Loss: 0.0841, Train Acc: 90.08% | Val Loss: 0.2092, Val Acc: 84.50%
+Epoch [13/20] - Train Loss: 0.0715, Train Acc: 91.33% | Val Loss: 0.1340, Val Acc: 90.50%
+Epoch [14/20] - Train Loss: 0.0545, Train Acc: 95.35% | Val Loss: 0.2053, Val Acc: 87.00%
+Epoch [15/20] - Train Loss: 0.0733, Train Acc: 91.96% | Val Loss: 0.1070, Val Acc: 92.00%
+Epoch [16/20] - Train Loss: 0.0579, Train Acc: 93.97% | Val Loss: 0.1359, Val Acc: 88.50%
+Epoch [17/20] - Train Loss: 0.0616, Train Acc: 94.10% | Val Loss: 0.2348, Val Acc: 83.00%
+Epoch [18/20] - Train Loss: 0.0353, Train Acc: 95.35% | Val Loss: 0.1811, Val Acc: 89.50%
+Epoch [19/20] - Train Loss: 0.0290, Train Acc: 96.23% | Val Loss: 0.1598, Val Acc: 87.50%
+Epoch [20/20] - Train Loss: 0.0687, Train Acc: 93.22% | Val Loss: 0.2336, Val Acc: 84.50%
+-> Fold 1 Completed. Best Validation Accuracy: 92.00%. Weights saved: weights/vit_mlp_seed_2026_fold_1.pth
+
+--- Fold 2/5 ---
+Epoch [1/20] - Train Loss: 0.6653, Train Acc: 53.58% | Val Loss: 0.2947, Val Acc: 70.35%
+Epoch [2/20] - Train Loss: 0.3032, Train Acc: 72.27% | Val Loss: 0.2458, Val Acc: 73.37%
+Epoch [3/20] - Train Loss: 0.2168, Train Acc: 79.55% | Val Loss: 0.3448, Val Acc: 68.34%
+Epoch [4/20] - Train Loss: 0.2359, Train Acc: 80.55% | Val Loss: 0.2245, Val Acc: 79.40%
+Epoch [5/20] - Train Loss: 0.1461, Train Acc: 86.83% | Val Loss: 0.1576, Val Acc: 80.90%
+Epoch [6/20] - Train Loss: 0.1107, Train Acc: 89.71% | Val Loss: 0.1485, Val Acc: 84.92%
+Epoch [7/20] - Train Loss: 0.0912, Train Acc: 90.46% | Val Loss: 0.1877, Val Acc: 83.92%
+Epoch [8/20] - Train Loss: 0.1161, Train Acc: 88.96% | Val Loss: 0.2094, Val Acc: 79.40%
+Epoch [9/20] - Train Loss: 0.0891, Train Acc: 90.84% | Val Loss: 0.2118, Val Acc: 79.40%
+Epoch [10/20] - Train Loss: 0.1372, Train Acc: 86.83% | Val Loss: 0.1626, Val Acc: 83.42%
+Epoch [11/20] - Train Loss: 0.0922, Train Acc: 90.59% | Val Loss: 0.1273, Val Acc: 87.44%
+Epoch [12/20] - Train Loss: 0.0982, Train Acc: 90.84% | Val Loss: 0.1962, Val Acc: 84.42%
+Epoch [13/20] - Train Loss: 0.0597, Train Acc: 94.86% | Val Loss: 0.2813, Val Acc: 76.88%
+Epoch [14/20] - Train Loss: 0.0675, Train Acc: 93.48% | Val Loss: 0.1483, Val Acc: 87.44%
+Epoch [15/20] - Train Loss: 0.0476, Train Acc: 93.10% | Val Loss: 0.1462, Val Acc: 86.93%
+Epoch [16/20] - Train Loss: 0.0365, Train Acc: 95.61% | Val Loss: 0.1747, Val Acc: 87.94%
+Epoch [17/20] - Train Loss: 0.0309, Train Acc: 96.61% | Val Loss: 0.2261, Val Acc: 82.91%
+Epoch [18/20] - Train Loss: 0.0599, Train Acc: 93.10% | Val Loss: 0.1488, Val Acc: 86.43%
+Epoch [19/20] - Train Loss: 0.0298, Train Acc: 96.49% | Val Loss: 0.1899, Val Acc: 85.93%
+Epoch [20/20] - Train Loss: 0.0253, Train Acc: 97.37% | Val Loss: 0.2970, Val Acc: 81.41%
+-> Fold 2 Completed. Best Validation Accuracy: 87.94%. Weights saved: weights/vit_mlp_seed_2026_fold_2.pth
+
+--- Fold 3/5 ---
+Epoch [1/20] - Train Loss: 0.9001, Train Acc: 49.44% | Val Loss: 0.2859, Val Acc: 73.37%
+Epoch [2/20] - Train Loss: 0.3319, Train Acc: 71.52% | Val Loss: 0.3551, Val Acc: 70.35%
+Epoch [3/20] - Train Loss: 0.2624, Train Acc: 76.54% | Val Loss: 0.1840, Val Acc: 80.40%
+Epoch [4/20] - Train Loss: 0.2074, Train Acc: 81.18% | Val Loss: 0.1946, Val Acc: 78.89%
+Epoch [5/20] - Train Loss: 0.1831, Train Acc: 81.93% | Val Loss: 0.1540, Val Acc: 84.42%
+Epoch [6/20] - Train Loss: 0.1278, Train Acc: 87.20% | Val Loss: 0.1720, Val Acc: 80.90%
+Epoch [7/20] - Train Loss: 0.1119, Train Acc: 87.83% | Val Loss: 0.2166, Val Acc: 79.90%
+Epoch [8/20] - Train Loss: 0.1851, Train Acc: 81.93% | Val Loss: 0.1526, Val Acc: 82.41%
+Epoch [9/20] - Train Loss: 0.1165, Train Acc: 88.83% | Val Loss: 0.2346, Val Acc: 81.41%
+Epoch [10/20] - Train Loss: 0.1208, Train Acc: 89.08% | Val Loss: 0.1820, Val Acc: 84.92%
+Epoch [11/20] - Train Loss: 0.1690, Train Acc: 85.32% | Val Loss: 0.2799, Val Acc: 68.84%
+Epoch [12/20] - Train Loss: 0.1011, Train Acc: 89.71% | Val Loss: 0.1529, Val Acc: 82.91%
+Epoch [13/20] - Train Loss: 0.0575, Train Acc: 93.73% | Val Loss: 0.1970, Val Acc: 82.41%
+Epoch [14/20] - Train Loss: 0.0515, Train Acc: 94.35% | Val Loss: 0.1350, Val Acc: 87.94%
+Epoch [15/20] - Train Loss: 0.0461, Train Acc: 93.60% | Val Loss: 0.1405, Val Acc: 86.93%
+Epoch [16/20] - Train Loss: 0.0317, Train Acc: 96.49% | Val Loss: 0.1491, Val Acc: 88.44%
+Epoch [17/20] - Train Loss: 0.0406, Train Acc: 95.36% | Val Loss: 0.1997, Val Acc: 82.91%
+Epoch [18/20] - Train Loss: 0.0641, Train Acc: 93.35% | Val Loss: 0.1515, Val Acc: 86.43%
+Epoch [19/20] - Train Loss: 0.0726, Train Acc: 90.97% | Val Loss: 0.1936, Val Acc: 84.42%
+Epoch [20/20] - Train Loss: 0.0777, Train Acc: 92.60% | Val Loss: 0.1863, Val Acc: 81.41%
+-> Fold 3 Completed. Best Validation Accuracy: 88.44%. Weights saved: weights/vit_mlp_seed_2026_fold_3.pth
+
+--- Fold 4/5 ---
+Epoch [1/20] - Train Loss: 0.7547, Train Acc: 54.96% | Val Loss: 0.5655, Val Acc: 52.26%
+Epoch [2/20] - Train Loss: 0.3526, Train Acc: 70.01% | Val Loss: 0.2371, Val Acc: 77.39%
+Epoch [3/20] - Train Loss: 0.2016, Train Acc: 80.68% | Val Loss: 0.3025, Val Acc: 75.88%
+Epoch [4/20] - Train Loss: 0.1843, Train Acc: 82.69% | Val Loss: 0.1779, Val Acc: 81.91%
+Epoch [5/20] - Train Loss: 0.1648, Train Acc: 84.19% | Val Loss: 0.2132, Val Acc: 79.40%
+Epoch [6/20] - Train Loss: 0.1686, Train Acc: 83.44% | Val Loss: 0.1886, Val Acc: 81.41%
+Epoch [7/20] - Train Loss: 0.1267, Train Acc: 87.20% | Val Loss: 0.1927, Val Acc: 81.41%
+Epoch [8/20] - Train Loss: 0.1025, Train Acc: 89.59% | Val Loss: 0.2247, Val Acc: 80.40%
+Epoch [9/20] - Train Loss: 0.0996, Train Acc: 89.08% | Val Loss: 0.1605, Val Acc: 84.92%
+Epoch [10/20] - Train Loss: 0.1182, Train Acc: 87.70% | Val Loss: 0.2315, Val Acc: 80.90%
+Epoch [11/20] - Train Loss: 0.0792, Train Acc: 91.22% | Val Loss: 0.1478, Val Acc: 87.44%
+Epoch [12/20] - Train Loss: 0.0713, Train Acc: 93.10% | Val Loss: 0.2016, Val Acc: 84.92%
+Epoch [13/20] - Train Loss: 0.0592, Train Acc: 93.60% | Val Loss: 0.1995, Val Acc: 84.42%
+Epoch [14/20] - Train Loss: 0.0450, Train Acc: 94.86% | Val Loss: 0.1901, Val Acc: 86.43%
+Epoch [15/20] - Train Loss: 0.0661, Train Acc: 93.10% | Val Loss: 0.1708, Val Acc: 85.93%
+Epoch [16/20] - Train Loss: 0.0799, Train Acc: 92.72% | Val Loss: 0.2255, Val Acc: 81.41%
+Epoch [17/20] - Train Loss: 0.0853, Train Acc: 90.59% | Val Loss: 0.1843, Val Acc: 82.91%
+Epoch [18/20] - Train Loss: 0.0942, Train Acc: 90.59% | Val Loss: 0.1277, Val Acc: 86.93%
+Epoch [19/20] - Train Loss: 0.0369, Train Acc: 95.36% | Val Loss: 0.1236, Val Acc: 90.45%
+Epoch [20/20] - Train Loss: 0.0495, Train Acc: 93.85% | Val Loss: 0.2089, Val Acc: 84.92%
+-> Fold 4 Completed. Best Validation Accuracy: 90.45%. Weights saved: weights/vit_mlp_seed_2026_fold_4.pth
+
+--- Fold 5/5 ---
+Epoch [1/20] - Train Loss: 0.8064, Train Acc: 50.94% | Val Loss: 0.4204, Val Acc: 66.33%
+Epoch [2/20] - Train Loss: 0.3326, Train Acc: 71.77% | Val Loss: 0.3452, Val Acc: 70.35%
+Epoch [3/20] - Train Loss: 0.2652, Train Acc: 74.91% | Val Loss: 0.2054, Val Acc: 78.89%
+Epoch [4/20] - Train Loss: 0.1888, Train Acc: 82.81% | Val Loss: 0.1925, Val Acc: 79.40%
+Epoch [5/20] - Train Loss: 0.1606, Train Acc: 84.19% | Val Loss: 0.1595, Val Acc: 84.42%
+Epoch [6/20] - Train Loss: 0.2068, Train Acc: 80.80% | Val Loss: 0.2771, Val Acc: 77.39%
+Epoch [7/20] - Train Loss: 0.1318, Train Acc: 86.83% | Val Loss: 0.1269, Val Acc: 85.93%
+Epoch [8/20] - Train Loss: 0.1085, Train Acc: 87.95% | Val Loss: 0.1337, Val Acc: 86.43%
+Epoch [9/20] - Train Loss: 0.1054, Train Acc: 88.58% | Val Loss: 0.1848, Val Acc: 79.90%
+Epoch [10/20] - Train Loss: 0.1512, Train Acc: 83.81% | Val Loss: 0.2310, Val Acc: 75.88%
+Epoch [11/20] - Train Loss: 0.0781, Train Acc: 91.59% | Val Loss: 0.1735, Val Acc: 80.40%
+Epoch [12/20] - Train Loss: 0.0954, Train Acc: 90.34% | Val Loss: 0.1850, Val Acc: 84.92%
+Epoch [13/20] - Train Loss: 0.0822, Train Acc: 91.84% | Val Loss: 0.1342, Val Acc: 87.44%
+Epoch [14/20] - Train Loss: 0.0463, Train Acc: 94.86% | Val Loss: 0.2366, Val Acc: 78.39%
+Epoch [15/20] - Train Loss: 0.0589, Train Acc: 94.48% | Val Loss: 0.2095, Val Acc: 81.41%
+Epoch [16/20] - Train Loss: 0.0676, Train Acc: 93.60% | Val Loss: 0.1590, Val Acc: 85.43%
+Epoch [17/20] - Train Loss: 0.0426, Train Acc: 95.48% | Val Loss: 0.1121, Val Acc: 89.45%
+Epoch [18/20] - Train Loss: 0.0623, Train Acc: 93.35% | Val Loss: 0.2134, Val Acc: 81.41%
+Epoch [19/20] - Train Loss: 0.1246, Train Acc: 88.46% | Val Loss: 0.3011, Val Acc: 80.90%
+Epoch [20/20] - Train Loss: 0.0942, Train Acc: 91.47% | Val Loss: 0.1474, Val Acc: 87.44%
+-> Fold 5 Completed. Best Validation Accuracy: 89.45%. Weights saved: weights/vit_mlp_seed_2026_fold_5.pth
+
+==================================================
+VIT-MLP TRAINING COMPLETED (Duration: 572.85 minutes)
+Seed-Based Fold Results (Accuracy %):
+Seed 42: [89.5, 89.44723618090453, 90.45226130653266, 88.44221105527639, 92.46231155778895] (Average: 90.06%)
+Seed 1024: [90.0, 91.4572864321608, 90.45226130653266, 89.94974874371859, 88.44221105527639] (Average: 90.06%)
+Seed 2026: [92.0, 87.93969849246231, 88.44221105527639, 90.45226130653266, 89.44723618090453] (Average: 89.66%)
