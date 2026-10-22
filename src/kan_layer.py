@@ -1,51 +1,52 @@
 """
-Author: Prof. Dr. Metin Zontul
+Author: Metin Zontul
 Date: October 2026
-Project: XAI-VisionMamba-KAN-Ensemble
-Description: B-Spline based Kolmogorov-Arnold Network (KAN) layers 
-             used as the highly explainable classification head.
+Description: Kolmogorov-Arnold Network (KAN) layer implementation with authentic 
+             B-spline basis functions using Cox-de Boor recursion. Replaces the 
+             placeholder zero-tensor implementation to accurately evaluate spline contributions.
 """
 
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 
-class KANLinear(nn.Module):
-    """
-    1D KAN Layer leveraging B-spline control points for localized explainability.
-    Ref: Eq. 8 and Eq. 9 of the manuscript.
-    """
+class KANLayer(nn.Module):
     def __init__(self, in_features, out_features, grid_size=5, spline_order=3):
-        super(KANLinear, self).__init__()
+        super(KANLayer, self).__init__()
         self.in_features = in_features
         self.out_features = out_features
         self.grid_size = grid_size
         self.spline_order = spline_order
         
-        # Base activation weight (w_b)
-        self.base_weight = nn.Parameter(torch.Tensor(out_features, in_features))
-        
-        # Spline control points (c_i)
-        self.spline_weight = nn.Parameter(torch.Tensor(out_features, in_features, grid_size + spline_order))
-        
-        self.reset_parameters()
+        # B-Spline parameters and grid initialization
+        self.grid = nn.Parameter(torch.linspace(-1, 1, grid_size + spline_order + 1), requires_grad=False)
+        self.spline_weights = nn.Parameter(torch.randn(out_features, in_features, grid_size + spline_order))
+        self.base_weights = nn.Parameter(torch.randn(out_features, in_features))
+        self.base_activation = nn.SiLU()
 
-    def reset_parameters(self):
-        nn.init.kaiming_uniform_(self.base_weight, a=np.sqrt(5))
-        nn.init.uniform_(self.spline_weight, -0.1, 0.1)
+    def _compute_b_splines(self, x):
+        """
+        Computes the B-spline basis functions using Cox-de Boor recursion.
+        x shape: (batch_size, in_features)
+        Returns shape: (batch_size, in_features, grid_size + spline_order)
+        """
+        x = x.unsqueeze(-1) # (batch_size, in_features, 1)
+        bases = ((x >= self.grid[:-1]) & (x < self.grid[1:])).float()
+        
+        for k in range(1, self.spline_order + 1):
+            left_term = (x - self.grid[:-k-1]) / (self.grid[k:-1] - self.grid[:-k-1] + 1e-8)
+            right_term = (self.grid[k+1:] - x) / (self.grid[k+1:] - self.grid[1:-k] + 1e-8)
+            bases = left_term * bases[..., :-1] + right_term * bases[..., 1:]
+            
+        return bases
 
     def forward(self, x):
-        # Base activation: SiLU
-        base_out = F.linear(F.silu(x), self.base_weight)
+        # Base linear activation branch
+        base_output = nn.functional.linear(self.base_activation(x), self.base_weights)
         
-        # B-spline evaluation logic (abstracted for clarity)
-        # This replaces the fixed linear activation mapping with learnable univariate edges
-        spline_out = self._compute_b_splines(x) 
+        # B-Spline computation branch
+        splines = self._compute_b_splines(x) 
         
-        return base_out + spline_out
+        # Multiply by learnable spline weights and sum
+        spline_output = torch.einsum('bik,oik->bo', splines, self.spline_weights)
         
-    def _compute_b_splines(self, x):
-        # B-Spline interpolation using self.spline_weight across the grid
-        # Output shape: (batch_size, out_features)
-        # Placeholder for full spline calculation
-        return torch.zeros((x.size(0), self.out_features), device=x.device)
+        return base_output + spline_output
