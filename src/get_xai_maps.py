@@ -1,10 +1,11 @@
 """
-Author: Prof. Dr. Metin Zontul
-Date: October 2026
-Project: XAI-VisionMamba-KAN-Ensemble
-Description: Extracts and visualizes Axiomatic Integrated Gradients (IG) 
-             feature attribution maps to evaluate the 2D spatial interpretability 
-             of the KAN classification heads. Replicates Figure 6 of the manuscript.
+==============================================================================
+Author: Prof. Dr. Metin Zontul & Assoc. Prof. Dr. Oguz Kaynar
+Description: Integrated Gradients XAI Pipeline for Mamba & Hybrid Models.
+             Pixel-level attribution analysis independent of spatial structures.
+             Evaluates Champion models (Hybrid-KAN, Hybrid-MLP, Vision Mamba) 
+             on sample marble textures for SCIE/Q1 ablation comparison.
+==============================================================================
 """
 
 import os
@@ -15,88 +16,99 @@ from PIL import Image
 from torchvision import transforms
 from captum.attr import IntegratedGradients
 from captum.attr import visualization as viz
+import timm
 
-# Import the base learner from the project
-from src.hybrid_network import HybridResNetMambaKAN
+from resnet_mamba_kan import ResNetMambaKAN
 
-def load_image(image_path):
-    """
-    Loads an image and applies the validation transform (Z-score normalization).
-    """
-    # Eq 1: Normalization params
+def load_vision_mamba(num_classes, weight_path, device):
+    try:
+        model = timm.create_model('mambaout_base', pretrained=False, num_classes=num_classes)
+    except Exception:
+        model = timm.create_model('vision_mamba_base', pretrained=False, num_classes=num_classes)
+    model.to(device)
+    model.load_state_dict(torch.load(weight_path, map_location=device, weights_only=True))
+    model.eval()
+    return model
+
+def load_hybrid_kan_model(num_classes, weight_path, device):
+    model = ResNetMambaKAN(num_classes=num_classes).to(device)
+    model.load_state_dict(torch.load(weight_path, map_location=device, weights_only=True))
+    model.eval()
+    return model
+
+def process_integrated_gradients(model, input_tensor, original_img, out_path, title_prefix, class_names):
+    output = model(input_tensor)
+    probs = torch.softmax(output, dim=1)
+    pred_idx = output.argmax(dim=1).item()
+    pred_class = class_names[pred_idx]
+    prob = probs[0, pred_idx].item()
+    
+    ig = IntegratedGradients(model)
+    attributions, delta = ig.attribute(input_tensor, target=pred_idx, return_convergence_delta=True, n_steps=50)
+    
+    attributions_np = np.transpose(attributions.squeeze().cpu().detach().numpy(), (1, 2, 0))
+    original_img_np = np.transpose(original_img.squeeze().cpu().detach().numpy(), (1, 2, 0))
+    
+    mean = np.array([0.485, 0.456, 0.406])
+    std = np.array([0.229, 0.224, 0.225])
+    original_img_np = std * original_img_np + mean
+    original_img_np = np.clip(original_img_np, 0, 1)
+
+    fig, axis = viz.visualize_image_attr_multiple(
+        attributions_np,
+        original_img_np,
+        methods=["original_image", "blended_heat_map"],
+        signs=["all", "positive"],
+        show_colorbar=True,
+        titles=[f"Original Image", f"{title_prefix} IG\nPred: {pred_class} ({prob*100:.1f}%)"],
+        fig_size=(10, 5),
+        use_pyplot=False
+    )
+    
+    fig.savefig(out_path, dpi=600, bbox_inches='tight')
+    plt.close(fig)
+    print(f"[*] IG plot saved: {out_path}")
+
+if __name__ == "__main__":
+    print(f"\n{'='*80}")
+    print("[*] INITIALIZING INTEGRATED GRADIENTS (IG) XAI PIPELINE")
+    print(f"{'='*80}")
+
+    DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    NUM_CLASSES = 6
+    CLASS_NAMES = ['Medium1', 'Medium2', 'Wanlut1', 'Wanlut2', 'White1', 'White2']
+    
+    HYBRID_KAN_WEIGHT_PATH = "weights/resnet_mamba_kan_seed_42_fold_3.pth"
+    MAMBA_WEIGHT_PATH = "weights/mambavision_seed_1024_fold_1.pth" 
+    
+    DATA_DIR = "../dataset/Marble"
+    OUTPUT_DIR = "plots/integrated_gradients"
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+    hybrid_kan_model = load_hybrid_kan_model(NUM_CLASSES, HYBRID_KAN_WEIGHT_PATH, DEVICE)
+    mamba_model = load_vision_mamba(NUM_CLASSES, MAMBA_WEIGHT_PATH, DEVICE)
+
     transform = transforms.Compose([
         transforms.Resize((224, 224)),
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     ])
-    
-    img = Image.open(image_path).convert('RGB')
-    input_tensor = transform(img).unsqueeze(0) # Add batch dimension
-    
-    # Keep original image for overlay plotting
-    original_image = np.array(img.resize((224, 224)))
-    return input_tensor, original_image
 
-def generate_ig_heatmap(model, input_tensor, original_image, target_class, save_path):
-    """
-    Computes Integrated Gradients and saves the resulting heatmap overlay.
-    """
-    model.eval()
-    
-    # Initialize Integrated Gradients
-    ig = IntegratedGradients(model)
-    
-    # Compute attributions
-    # Baseline is automatically zero (black image)
-    attributions, delta = ig.attribute(input_tensor, target=target_class, return_convergence_delta=True)
-    
-    # Convert tensors to numpy arrays for Captum visualization
-    attributions_np = np.transpose(attributions.squeeze(0).cpu().detach().numpy(), (1, 2, 0))
-    
-    # Create the visualization overlay
-    fig, axis = viz.visualize_image_attr(
-        attributions_np,
-        original_image,
-        method="blended_heat_map",
-        sign="positive", # Show regions that positively contributed to the prediction
-        show_colorbar=True,
-        title=f"Integrated Gradients (Class {target_class})",
-        use_pyplot=False
-    )
-    
-    # Save the figure to the logs directory
-    fig.savefig(save_path, dpi=300, bbox_inches='tight')
-    plt.close(fig)
-    print(f"Saved IG heatmap to: {save_path}")
-
-if __name__ == "__main__":
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    
-    # Ensure the output directory exists
-    os.makedirs("./logs/xai_heatmaps", exist_ok=True)
-    
-    # Initialize model and load trained weights (Checkpoint)
-    model = HybridResNetMambaKAN(num_classes=5).to(device)
-    
-    # NOTE: Ensure you have a trained checkpoint in the logs/checkpoints folder
-    checkpoint_path = "./logs/checkpoints/hybrid_s1024_f1_best.pth"
-    if os.path.exists(checkpoint_path):
-        model.load_state_dict(torch.load(checkpoint_path, map_location=device))
-        print("Model weights loaded successfully.")
-    else:
-        print(f"Warning: Checkpoint not found at {checkpoint_path}. Using untrained weights for demonstration.")
-    
-    # Example Target: Medium1 Class Image
-    sample_image_path = "./dataset/Marble/Medium1/sample_medium1.jpg"
-    
-    if os.path.exists(sample_image_path):
-        input_tensor, original_image = load_image(sample_image_path)
-        input_tensor = input_tensor.to(device)
+    for class_name in CLASS_NAMES:
+        class_dir = os.path.join(DATA_DIR, class_name)
+        if not os.path.exists(class_dir): continue
+            
+        try:
+             img_name = os.listdir(class_dir)[0]
+             img_path = os.path.join(class_dir, img_name)
+        except IndexError: continue
         
-        # Assume Target Class Index is 0 for Medium1
-        target_class_idx = 0 
+        pil_img = Image.open(img_path).convert('RGB')
+        input_tensor = transform(pil_img).unsqueeze(0).to(DEVICE)
+        input_tensor.requires_grad_()
         
-        save_file = "./logs/xai_heatmaps/IG_Hybrid_KAN_Medium1.png"
-        generate_ig_heatmap(model, input_tensor, original_image, target_class_idx, save_file)
-    else:
-        print(f"Error: Sample image not found at {sample_image_path}. Please provide a valid marble texture image.")
+        out_path_hybrid_kan = os.path.join(OUTPUT_DIR, f"IG_Hybrid_KAN_{class_name}.png")
+        process_integrated_gradients(hybrid_kan_model, input_tensor, input_tensor, out_path_hybrid_kan, "Hybrid-KAN", CLASS_NAMES)
+        
+        out_path_mamba = os.path.join(OUTPUT_DIR, f"IG_Mamba_{class_name}.png")
+        process_integrated_gradients(mamba_model, input_tensor, input_tensor, out_path_mamba, "Vision Mamba (Vim)", CLASS_NAMES)

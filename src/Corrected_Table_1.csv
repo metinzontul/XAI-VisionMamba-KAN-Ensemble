@@ -1,0 +1,12 @@
+Architecture,"Seed 42 (Mean $\pm$ SD, \%)","Seed 1024 (Mean $\pm$ SD, \%)","Seed 2026 (Mean $\pm$ SD, \%)","Overall 15-Run (Mean $\pm$ SD, \%)"
+ResNet-Mamba-KAN,92.87 \pm 1.47,91.47 \pm 1.77,91.56 \pm 0.89,91.97 \pm 1.48
+ResNet-Mamba-MLP,93.48 \pm 2.20,92.77 \pm 1.61,92.17 \pm 1.05,92.80 \pm 1.66
+Early-Hybrid,89.46 \pm 2.48,89.36 \pm 1.89,90.06 \pm 1.39,89.63 \pm 1.85
+Vision Mamba (Vim),93.88 \pm 0.96,93.47 \pm 1.92,94.18 \pm 1.36,93.84 \pm 1.39
+ResNet-KAN,89.76 \pm 1.73,89.36 \pm 1.53,88.05 \pm 1.94,89.06 \pm 1.78
+ResNet-MLP,89.96 \pm 2.18,89.06 \pm 0.97,89.76 \pm 1.73,89.59 \pm 1.62
+ViT-KAN-Head,89.16 \pm 1.92,89.36 \pm 2.01,88.85 \pm 1.10,89.12 \pm 1.61
+ViT-ResNet-KAN,90.66 \pm 2.07,90.76 \pm 1.54,89.05 \pm 0.85,90.16 \pm 1.66
+ViT-ResNet-MLP,91.97 \pm 1.17,91.16 \pm 1.41,91.46 \pm 0.96,91.53 \pm 1.16
+ViT-KAN,69.98 \pm 3.97,70.28 \pm 2.61,69.77 \pm 4.78,70.01 \pm 3.61
+ViT-MLP,90.06 \pm 1.52,90.06 \pm 1.09,89.66 \pm 1.63,89.93 \pm 1.34
