@@ -6,12 +6,24 @@
 
 **Official PyTorch implementation of the XAI-driven heterogeneous ensemble framework combining Vision Mamba (Vim) and Kolmogorov-Arnold Networks (KAN) for explainable macroscopic texture classification.**
 
-This repository contains the source code, training logs, and pre-trained weights for the article focusing on the reliable and transparent classification of macroscopic marble textures. The proposed heterogeneous soft-voting framework achieves a peak Macro F1-Score of 97.17% by mathematically fusing the macroscopic stability of Vision Mamba with the hyper-flexible, localized explainability of B-Spline KAN heads.
+This repository contains the source code, training logs, and pre-trained weights for the article focusing on the reliable and transparent classification of macroscopic marble textures. The proposed heterogeneous soft-voting framework achieves a peak Macro F1-Score of 97.10% by mathematically fusing the macroscopic stability of Vision Mamba with the hyper-flexible, localized explainability of B-Spline KAN heads.
 
 ## 📌 Project Overview
 * **Base Learner 1 (Vision Mamba):** Provides global contextual understanding and highly stable predictive variance.
-* **Base Learner 2 (Hybrid ResNet-Mamba-KAN):** Leverages learnable B-spline activation functions (Eq. 8 & 9) to precisely map high-frequency 2D spatial anomalies (micro-textures).
-* **XAI Validation:** Utilizes Axiomatic Integrated Gradients (IG) to prove the superior spatial interpretability of the KAN classification head over standard MLPs (Figure 6).
+* **Base Learner 2 (Hybrid ResNet-Mamba-KAN):** Leverages learnable B-spline activation functions to precisely map high-frequency 2D spatial anomalies (micro-textures).
+* **XAI Validation:** Utilizes Axiomatic Integrated Gradients (IG) to prove the superior spatial interpretability of the KAN classification head over standard MLPs (Figure 4).
+
+## 🔍 Explainability (XAI) Comparison: KAN vs. Standard MLP
+
+To demonstrate the superior localized feature attribution of our proposed B-Spline KAN classification head, we applied Axiomatic Integrated Gradients (IG). The resulting heatmaps clearly show how the KAN head mathematically isolates micro-textures and capillary veins, unlike the diffuse global focus of the standard Vision Mamba or MLP heads.
+
+| Architecture | Medium1 Class Example | Wanlut1 Class Example |
+| :---: | :---: | :---: |
+| **Pure Vision Mamba (Vim)**<br>*(Global Focus / Diffuse)* | <img src="logs/xai_heatmaps/IG_Mamba_Medium1.png" width="250"> | <img src="logs/xai_heatmaps/IG_Mamba_Wanlut1.png" width="250"> |
+| **Hybrid ResNet-Mamba-MLP**<br>*(Standard Head / Generic)* | <img src="logs/xai_heatmaps/IG_Hybrid_MLP_Medium1.png" width="250"> | <img src="logs/xai_heatmaps/IG_Hybrid_MLP_Wanlut1.png" width="250"> |
+| **Hybrid ResNet-Mamba-KAN**<br>*(Proposed / Hyper-Localized)* | <img src="logs/xai_heatmaps/IG_Hybrid_KAN_Medium1.png" width="250"> | <img src="logs/xai_heatmaps/IG_Hybrid_KAN_Wanlut1.png" width="250"> |
+
+*Note: These visual proofs correspond to **Figure 4** of our manuscript.*
 
 ## 📂 Repository Structure
 
@@ -28,73 +40,11 @@ XAI-VisionMamba-KAN-Ensemble/
 │
 ├── src/                        
 │   ├── data_loader.py          # Strict zero-leakage 5-fold CV & Z-score normalization
-│   ├── kan_layer.py            # B-Spline KAN implementation
-│   ├── hybrid_network.py       # ResNet-Mamba-KAN architecture
+│   ├── resnet_mamba_kan.py     # Fully integrated ResNet-Mamba-KAN architecture (Authentic B-Spline & Mamba SSM)
 │   ├── ensemble.py             # Heterogeneous soft-voting fusion mechanism
 │   ├── train.py                # 15-Run Stratified CV training execution
-│   └── get_xai_maps.py         # Extracts and visualizes Integrated Gradients
+│   ├── get_xai_maps.py         # Extracts and visualizes Integrated Gradients
+│   ├── generate_authentic_cm.py# Non-fabricated exact confusion matrix generator
+│   └── calculate_table1.py     # Verified Table 1 standard deviation generator
 │
 └── requirements.txt            # Python dependencies
-```
-
-## 🚀 Installation & Setup
-
-**1. Clone the repository:**
-```bash
-git clone https://github.com/metinzontul/XAI-VisionMamba-KAN-Ensemble.git
-cd XAI-VisionMamba-KAN-Ensemble
-```
-
-**2. Install dependencies:**
-```bash
-pip install -r requirements.txt
-```
-
-**3. Download Pre-trained Champion Models (Weights):**
-To evaluate the models or generate XAI heatmaps without training from scratch, download the pre-trained champion weights from the [Releases Page](https://github.com/metinzontul/XAI-VisionMamba-KAN-Ensemble/releases/tag/v1.0.0-weights).
-
-Place the following downloaded files directly into the `logs/checkpoints/` directory:
-*   `resnet_mamba_kan_seed_42_fold_3.pth` (Hybrid Model)
-*   `vision_mamba_seed_1024_fold_1.pth` (Pure Vim Model)
-
-## 💻 Usage
-
-**Training the Models (15-Run Cross-Validation):**
-Ensure your raw images are organized in `dataset/Marble/<Class_Name>/` and execute:
-```bash
-python src/train.py
-```
-
-**Generating XAI Heatmaps (Integrated Gradients):**
-To replicate the interpretability analysis (Figure 6) using the downloaded champion weights:
-```bash
-python src/get_xai_maps.py
-```
-The resulting feature attribution overlays will be saved in `logs/xai_heatmaps/`.
-
-## 🔍 Explainability (XAI) Comparison: KAN vs. Standard MLP
-
-To demonstrate the superior localized feature attribution of our proposed B-Spline KAN classification head, we applied Axiomatic Integrated Gradients (IG). The resulting heatmaps clearly show how the KAN head mathematically isolates micro-textures and capillary veins, unlike the diffuse global focus of the standard Vision Mamba or MLP heads.
-
-| Architecture | Medium1 Class Example | Wanlut1 Class Example |
-| :---: | :---: | :---: |
-| **Pure Vision Mamba (Vim)**<br>*(Global Focus / Diffuse)* | <img src="logs/xai_heatmaps/IG_Mamba_Medium1.png" width="250"> | <img src="logs/xai_heatmaps/IG_Mamba_Wanlut1.png" width="250"> |
-| **Hybrid ResNet-Mamba-MLP**<br>*(Standard Head / Generic)* | <img src="logs/xai_heatmaps/IG_Hybrid_MLP_Medium1.png" width="250"> | <img src="logs/xai_heatmaps/IG_Hybrid_MLP_Wanlut1.png" width="250"> |
-| **Hybrid ResNet-Mamba-KAN**<br>*(Proposed / Hyper-Localized)* | <img src="logs/xai_heatmaps/IG_Hybrid_KAN_Medium1.png" width="250"> | <img src="logs/xai_heatmaps/IG_Hybrid_KAN_Wanlut1.png" width="250"> |
-
-*Note: These visual proofs correspond to **Figure 6** of our manuscript.*
-
-## 📜 Citation
-
-If you find this code or our conceptual framework useful in your research, please consider citing our paper:
-
-```bibtex
-@article{zontul2026xai,
-  title={Structured Feature Compression in Vision Models: Comparing KAN, MLP, and Linear Classifier Heads for Macroscopic Texture Classification},
-  author={Zontul, Metin and et al.},
-  journal={MDPI Electronics},
-  year={2026},
-  publisher={MDPI}
-}
-```
-**Author:** Prof. Dr. Metin Zontul (October 2026)
