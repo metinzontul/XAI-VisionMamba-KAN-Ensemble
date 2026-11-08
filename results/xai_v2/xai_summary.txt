@@ -1,0 +1,53 @@
+Integrated Gradients, seed 42, epoch-20 weights of the fold in which each image is a validation image
+Selection: 254 images = seeded random draw (20 per class, draw seed 20261105) + 154 images misclassified by a member of E1
+IG: target = predicted class logit, 50 Gauss-Legendre steps, zero baseline (normalised space), positive attributions
+Comparison grid: 28x28 cells of 8x8 px; top-20% overlap = IoU of the 20% highest cells (chance level 0.112); curves with 20 steps
+
+Integrity check - stored epoch-20 prediction reproduced from the weight file + the image file:
+  Vision Mamba (Vim-S): 254/254
+  ResNet-Mamba-MLP: 253/254   <-- MISMATCH
+      image index 17: stored class Medium1 (p=0.452) vs recomputed Medium2 (p=0.449)
+  ResNet-Mamba-KAN: 253/254   <-- MISMATCH
+      image index 97: stored class Medium2 (p=0.482) vs recomputed Medium1 (p=0.475)
+  images reproduced by every model: 252/254 (statistics below are given for all images and for this subset)
+
+IG completeness (|convergence delta|; relative = delta / |f(x) - f(baseline)| of the explained logit):
+  Vision Mamba (Vim-S): delta median 0.070, max 0.508; relative median 0.017, 90th pct 0.050, images with relative delta > 0.1: 2/254
+  ResNet-Mamba-MLP: delta median 0.203, max 1.332; relative median 0.050, 90th pct 0.193, images with relative delta > 0.1: 74/254
+  ResNet-Mamba-KAN: delta median 0.255, max 2.825; relative median 0.064, 90th pct 0.290, images with relative delta > 0.1: 87/254
+
+Agreement of the maps between models (per image, then mean):
+  Vim-S vs Hybrid-MLP: top-20% IoU 0.173 (chance 0.112)   Spearman (28x28) 0.203   Spearman (raw pixels) 0.022   same explained class 153/254
+  Vim-S vs Hybrid-KAN: top-20% IoU 0.177 (chance 0.112)   Spearman (28x28) 0.213   Spearman (raw pixels) 0.021   same explained class 131/254
+  Hybrid-MLP vs Hybrid-KAN: top-20% IoU 0.357 (chance 0.112)   Spearman (28x28) 0.666   Spearman (raw pixels) 0.091   same explained class 183/254
+
+Insertion / deletion AUC (mean over images; the random order is the reference for 'no information'):
+  Vision Mamba (Vim-S): deletion 0.359 (random 0.472) | insertion 0.637 (random 0.492)
+  ResNet-Mamba-MLP: deletion 0.374 (random 0.389) | insertion 0.453 (random 0.386)
+  ResNet-Mamba-KAN: deletion 0.360 (random 0.380) | insertion 0.424 (random 0.376)
+
+Gain of the relevance order over the random order, all images (insertion gain / deletion gain; share of images with gain > 0; Wilcoxon p vs 0):
+  Vim-S (n=254): insertion +0.145 (89%, p=6.8e-38) | deletion +0.112 (80%, p=1.1e-25)
+  Hybrid-MLP (n=254): insertion +0.067 (80%, p=1.3e-25) | deletion +0.015 (64%, p=0.00019)
+  Hybrid-KAN (n=254): insertion +0.047 (66%, p=6.4e-10) | deletion +0.020 (60%, p=0.0006)
+  Vim-S minus Hybrid-MLP: insertion gain +0.078 (p=6e-13), deletion gain +0.097 (p=1.3e-14)
+  Vim-S minus Hybrid-KAN: insertion gain +0.098 (p=3.3e-18), deletion gain +0.092 (p=1.3e-11)
+  Hybrid-MLP minus Hybrid-KAN: insertion gain +0.020 (p=0.01), deletion gain -0.005 (p=0.75)
+
+Gain of the relevance order over the random order, images reproduced by every model (insertion gain / deletion gain; share of images with gain > 0; Wilcoxon p vs 0):
+  Vim-S (n=252): insertion +0.144 (89%, p=1.5e-37) | deletion +0.112 (79%, p=2.9e-25)
+  Hybrid-MLP (n=252): insertion +0.067 (79%, p=3e-25) | deletion +0.015 (64%, p=0.00025)
+  Hybrid-KAN (n=252): insertion +0.048 (66%, p=4.5e-10) | deletion +0.019 (60%, p=0.00092)
+  Vim-S minus Hybrid-MLP: insertion gain +0.077 (p=8.4e-13), deletion gain +0.097 (p=2.6e-14)
+  Vim-S minus Hybrid-KAN: insertion gain +0.097 (p=7.7e-18), deletion gain +0.093 (p=1e-11)
+  Hybrid-MLP minus Hybrid-KAN: insertion gain +0.019 (p=0.014), deletion gain -0.003 (p=0.82)
+
+Attribution mass in the outer two cell rows/columns of the 28x28 grid (uniform expectation 0.265; large values = border / patch-grid artefact):
+  Vim-S: 0.346
+  Hybrid-MLP: 0.217
+  Hybrid-KAN: 0.222
+
+Model-randomisation sanity check (Spearman between the maps of the trained and of a randomly initialised model, first 20 selected images; values near 0 mean the maps depend on the learned weights):
+  Vision Mamba (Vim-S): mean -0.093, median -0.102 over 20 images
+  ResNet-Mamba-MLP: mean 0.539, median 0.555 over 20 images
+  ResNet-Mamba-KAN: mean 0.524, median 0.530 over 20 images
