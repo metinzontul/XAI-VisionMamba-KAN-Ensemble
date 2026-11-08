@@ -114,6 +114,8 @@ should reproduce the numbers up to floating-point effects of the GPU.
 
 ## Tests
 
+What each test checks is described in [`tests/README.md`](tests/README.md).
+
 ```bash
 python tests/test_kan_and_hybrid.py     # KAN layer and hybrid backbone (CPU)
 python tests/test_ensemble_eval.py      # ensemble and statistics code
