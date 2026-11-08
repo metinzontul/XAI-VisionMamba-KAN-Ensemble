@@ -1,0 +1,183 @@
+====================================================================================================
+ENSEMBLE ANALYSIS - epoch-20 predictions, equal-weight soft voting, nothing fitted on validation data
+====================================================================================================
+Runs found: Vim-S 15, ResNet-Mamba-KAN 15, ResNet-Mamba-MLP 15, Vim-S (2nd init) 15, ResNet-50 (linear head) 15, ViT-B/16 (linear head) 15, ViT-B/16 + MLP head 15, ViT-B/16 + KAN head 15
+Consistency check passed: identical validation indices and labels for all models in every (seed, fold).
+
+----------------------------------------------------------------------------------------------------
+A. ACCURACY AND MACRO-F1 (mean +- sample SD (n-1), min, max over runs)
+----------------------------------------------------------------------------------------------------
+system                                                     runs      Accuracy %    min    max      macro-F1 %
+Vim-S                                                        15    90.29 +- 1.97  86.43  92.46    90.51 +- 1.84
+ResNet-Mamba-KAN                                             15    87.89 +- 2.02  83.50  90.50    88.29 +- 2.06
+ResNet-Mamba-MLP                                             15    87.42 +- 2.64  82.91  91.96    87.87 +- 2.58
+Vim-S (2nd init)                                             15    91.70 +- 2.23  88.44  96.48    91.87 +- 2.23
+ResNet-50 (linear head)                                      15    85.27 +- 2.04  81.41  89.95    85.64 +- 2.03
+ViT-B/16 (linear head)                                       15    87.98 +- 3.91  75.38  91.50    87.94 +- 4.84
+ViT-B/16 + MLP head                                          15    88.95 +- 2.18  84.92  92.46    89.10 +- 2.47
+ViT-B/16 + KAN head                                          15    89.62 +- 2.14  84.92  92.96    89.70 +- 2.39
+E1: Vim-S + ResNet-Mamba-KAN                                 15    92.23 +- 1.69  88.94  93.97    92.37 +- 1.63
+E2: Vim-S + ResNet-Mamba-MLP                                 15    92.24 +- 1.87  88.94  95.98    92.40 +- 1.86
+E3: Vim-S + Vim-S (2nd init)                                 15    93.04 +- 1.72  90.45  95.48    93.21 +- 1.62
+E4: ResNet-Mamba-KAN + ResNet-Mamba-MLP                      15    89.46 +- 1.83  85.43  91.50    89.82 +- 1.80
+E5: Vim-S + ResNet-Mamba-KAN + ResNet-Mamba-MLP              15    92.14 +- 1.65  88.44  94.97    92.32 +- 1.60
+
+----------------------------------------------------------------------------------------------------
+B. PER-CLASS RECALL (mean over runs, %)
+----------------------------------------------------------------------------------------------------
+system                                                       Medium1   Medium2   Walnut1   Walnut2    White1    White2
+Vim-S                                                           88.4      90.2      87.9      77.1      98.1     100.0
+ResNet-Mamba-KAN                                                79.8      87.8      78.9      85.2      99.1     100.0
+ResNet-Mamba-MLP                                                79.9      87.3      79.9      81.2      98.8     100.0
+Vim-S (2nd init)                                                89.4      93.9      84.8      84.2      99.3     100.0
+ResNet-50 (linear head)                                         75.8      83.5      78.0      77.3      99.6      99.6
+ViT-B/16 (linear head)                                          89.5      83.7      85.4      71.6      97.5      99.6
+ViT-B/16 + MLP head                                             89.8      85.7      86.8      73.8      97.5     100.0
+ViT-B/16 + KAN head                                             89.4      85.1      86.6      79.0      98.3     100.0
+E1: Vim-S + ResNet-Mamba-KAN                                    89.9      92.7      88.4      83.4      99.3     100.0
+E2: Vim-S + ResNet-Mamba-MLP                                    89.2      92.2      88.8      83.7      99.9     100.0
+E3: Vim-S + Vim-S (2nd init)                                    90.3      94.9      88.8      85.2      99.6     100.0
+E4: ResNet-Mamba-KAN + ResNet-Mamba-MLP                         81.5      88.8      83.3      85.9      99.7     100.0
+E5: Vim-S + ResNet-Mamba-KAN + ResNet-Mamba-MLP                 89.4      92.4      87.9      83.7      99.9     100.0
+
+(Pooled confusion matrices per seed -> .\results\ensemble_v2\confusion_matrices.json)
+
+----------------------------------------------------------------------------------------------------
+C. ERROR OVERLAP OF THE BASE MODELS (over all seed x image predictions)
+----------------------------------------------------------------------------------------------------
+pair                                          both wrong %  only 1st %  only 2nd %  oracle acc %
+Vim-S / ResNet-Mamba-KAN                              4.12        5.59        8.00         95.88
+Vim-S / ResNet-Mamba-MLP                              4.12        5.59        8.47         95.88
+Vim-S / Vim-S (2nd init)                              3.85        5.86        4.45         96.15
+Vim-S / ResNet-50 (linear head)                       4.28        5.42       10.44         95.72
+Vim-S / ViT-B/16 (linear head)                        4.69        5.02        7.33         95.31
+Vim-S / ViT-B/16 + MLP head                           4.42        5.29        6.63         95.58
+Vim-S / ViT-B/16 + KAN head                           4.69        5.02        5.69         95.31
+ResNet-Mamba-KAN / ResNet-Mamba-MLP                   6.73        5.39        5.86         93.27
+ResNet-Mamba-KAN / Vim-S (2nd init)                   3.51        8.60        4.79         96.49
+ResNet-Mamba-KAN / ResNet-50 (linear head)            6.73        5.39        8.00         93.27
+ResNet-Mamba-KAN / ViT-B/16 (linear head)             4.05        8.07        7.97         95.95
+ResNet-Mamba-KAN / ViT-B/16 + MLP head                3.98        8.13        7.06         96.02
+ResNet-Mamba-KAN / ViT-B/16 + KAN head                4.08        8.03        6.29         95.92
+ResNet-Mamba-MLP / Vim-S (2nd init)                   3.92        8.67        4.38         96.08
+ResNet-Mamba-MLP / ResNet-50 (linear head)            7.56        5.02        7.16         92.44
+ResNet-Mamba-MLP / ViT-B/16 (linear head)             4.75        7.83        7.26         95.25
+ResNet-Mamba-MLP / ViT-B/16 + MLP head                4.25        8.33        6.79         95.75
+ResNet-Mamba-MLP / ViT-B/16 + KAN head                4.08        8.50        6.29         95.92
+Vim-S (2nd init) / ResNet-50 (linear head)            4.12        4.18       10.61         95.88
+Vim-S (2nd init) / ViT-B/16 (linear head)             4.02        4.28        8.00         95.98
+Vim-S (2nd init) / ViT-B/16 + MLP head                3.61        4.69        7.43         96.39
+Vim-S (2nd init) / ViT-B/16 + KAN head                3.65        4.65        6.73         96.35
+ResNet-50 (linear head) / ViT-B/16 (linear head)          4.89        9.84        7.13         95.11
+ResNet-50 (linear head) / ViT-B/16 + MLP head          4.82        9.91        6.22         95.18
+ResNet-50 (linear head) / ViT-B/16 + KAN head          4.62       10.11        5.76         95.38
+ViT-B/16 (linear head) / ViT-B/16 + MLP head          6.22        5.79        4.82         93.78
+ViT-B/16 (linear head) / ViT-B/16 + KAN head          5.15        6.86        5.22         94.85
+ViT-B/16 + MLP head / ViT-B/16 + KAN head             5.52        5.52        4.85         94.48
+(oracle = share of images that at least one of the two models classifies correctly: upper bound of any 2-model vote)
+
+----------------------------------------------------------------------------------------------------
+D. STATISTICAL TESTS (accuracy)
+----------------------------------------------------------------------------------------------------
+Nadeau-Bengio correction factor 1/J + n_val/n_train with n_val ~ 199.2, n_train ~ 796.8
+
+PRIMARY  E1 vs Vim-S   [E1: Vim-S + ResNet-Mamba-KAN  minus  Vim-S]
+  paired runs J = 15 | mean accuracy difference +1.94 points | 95% interval [+0.46, +3.42] | corrected t = 2.81 | p = 0.0140
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 33/15, p=0.0133; seed 1024: 41/25, p=0.0640; seed 2026: 41/17, p=0.0022
+
+E2 vs its best member (Vim-S)   [E2: Vim-S + ResNet-Mamba-MLP  minus  Vim-S]
+  paired runs J = 15 | mean accuracy difference +1.94 points | 95% interval [-0.05, +3.94] | corrected t = 2.09 | p = 0.0558 | Holm-adjusted p = 0.3347
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 34/16, p=0.0153; seed 1024: 43/22, p=0.0125; seed 2026: 41/22, p=0.0226
+
+E3 vs its best member (Vim-S (2nd init))   [E3: Vim-S + Vim-S (2nd init)  minus  Vim-S (2nd init)]
+  paired runs J = 15 | mean accuracy difference +1.34 points | 95% interval [-0.89, +3.57] | corrected t = 1.29 | p = 0.2188 | Holm-adjusted p = 0.6563
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 34/10, p=0.0004; seed 1024: 23/15, p=0.2559; seed 2026: 26/18, p=0.2912
+
+E4 vs its best member (ResNet-Mamba-KAN)   [E4: ResNet-Mamba-KAN + ResNet-Mamba-MLP  minus  ResNet-Mamba-KAN]
+  paired runs J = 15 | mean accuracy difference +1.57 points | 95% interval [-0.46, +3.60] | corrected t = 1.66 | p = 0.1190 | Holm-adjusted p = 0.5475
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 29/20, p=0.2529; seed 1024: 38/17, p=0.0065; seed 2026: 39/22, p=0.0396
+
+E5 vs its best member (Vim-S)   [E5: Vim-S + ResNet-Mamba-KAN + ResNet-Mamba-MLP  minus  Vim-S]
+  paired runs J = 15 | mean accuracy difference +1.84 points | 95% interval [-0.47, +4.15] | corrected t = 1.71 | p = 0.1095 | Holm-adjusted p = 0.5475
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 41/30, p=0.2351; seed 1024: 47/35, p=0.2242; seed 2026: 57/25, p=0.0005
+
+E1 vs E2 (KAN vs MLP partner)   [E1: Vim-S + ResNet-Mamba-KAN  minus  E2: Vim-S + ResNet-Mamba-MLP]
+  paired runs J = 15 | mean accuracy difference -0.00 points | 95% interval [-1.68, +1.68] | corrected t = -0.00 | p = 0.9995 | Holm-adjusted p = 0.9995
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 16/16, p=1.0000; seed 1024: 26/31, p=0.5966; seed 2026: 26/21, p=0.5601
+
+E1 vs E3 (different architecture vs 2nd Vim)   [E1: Vim-S + ResNet-Mamba-KAN  minus  E3: Vim-S + Vim-S (2nd init)]
+  paired runs J = 15 | mean accuracy difference -0.80 points | 95% interval [-2.90, +1.29] | corrected t = -0.82 | p = 0.4245 | Holm-adjusted p = 0.8490
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 21/28, p=0.3916; seed 1024: 26/37, p=0.2074; seed 2026: 25/31, p=0.5044
+
+----------------------------------------------------------------------------------------------------
+D2. BASE-MODEL COMPARISONS (single models; added after the results at the request of reviewer 2 - exploratory; Holm over these four)
+----------------------------------------------------------------------------------------------------
+
+KAN vs MLP head (same ResNet-Mamba backbone)   [ResNet-Mamba-KAN  minus  ResNet-Mamba-MLP]
+  paired runs J = 15 | mean accuracy difference +0.47 points | 95% interval [-3.16, +4.10] | corrected t = 0.28 | p = 0.7852 | Holm-adjusted p = 0.8368
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 58/45, p=0.2369; seed 1024: 47/62, p=0.1797; seed 2026: 70/54, p=0.1777
+
+Vim-S vs ResNet-Mamba-KAN   [Vim-S  minus  ResNet-Mamba-KAN]
+  paired runs J = 15 | mean accuracy difference +2.41 points | 95% interval [-0.19, +5.00] | corrected t = 1.99 | p = 0.0666 | Holm-adjusted p = 0.2663
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 71/47, p=0.0338; seed 1024: 84/58, p=0.0355; seed 2026: 84/62, p=0.0819
+
+Vim-S vs ResNet-Mamba-MLP   [Vim-S  minus  ResNet-Mamba-MLP]
+  paired runs J = 15 | mean accuracy difference +2.88 points | 95% interval [-0.42, +6.17] | corrected t = 1.87 | p = 0.0819 | Holm-adjusted p = 0.2663
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 84/47, p=0.0016; seed 1024: 75/64, p=0.3964; seed 2026: 94/56, p=0.0024
+
+Vim-S vs Vim-S (2nd init): run-to-run variation of the identical recipe   [Vim-S  minus  Vim-S (2nd init)]
+  paired runs J = 15 | mean accuracy difference -1.41 points | 95% interval [-5.03, +2.21] | corrected t = -0.83 | p = 0.4184 | Holm-adjusted p = 0.8368
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 46/47, p=1.0000; seed 1024: 43/62, p=0.0785; seed 2026: 44/66, p=0.0448
+
+----------------------------------------------------------------------------------------------------
+D3. REFERENCE-MODEL COMPARISONS (ResNet-50, ViT-B/16; added after the results - exploratory; Holm over these 10)
+----------------------------------------------------------------------------------------------------
+
+ViT-B/16: KAN vs MLP head   [ViT-B/16 + KAN head  minus  ViT-B/16 + MLP head]
+  paired runs J = 15 | mean accuracy difference +0.67 points | 95% interval [-2.63, +3.97] | corrected t = 0.44 | p = 0.6697 | Holm-adjusted p = 1.0000
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 67/40, p=0.0116; seed 1024: 50/59, p=0.4437; seed 2026: 48/46, p=0.9179
+
+ViT-B/16: KAN vs linear head   [ViT-B/16 + KAN head  minus  ViT-B/16 (linear head)]
+  paired runs J = 15 | mean accuracy difference +1.64 points | 95% interval [-3.13, +6.41] | corrected t = 0.74 | p = 0.4725 | Holm-adjusted p = 1.0000
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 52/47, p=0.6879; seed 1024: 73/62, p=0.3895; seed 2026: 80/47, p=0.0043
+
+ViT-B/16: MLP vs linear head   [ViT-B/16 + MLP head  minus  ViT-B/16 (linear head)]
+  paired runs J = 15 | mean accuracy difference +0.97 points | 95% interval [-3.31, +5.26] | corrected t = 0.49 | p = 0.6342 | Holm-adjusted p = 1.0000
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 47/69, p=0.0507; seed 1024: 59/39, p=0.0544; seed 2026: 67/36, p=0.0029
+
+ViT-B/16 (linear) vs ResNet-50 (linear): transformer vs CNN backbone   [ViT-B/16 (linear head)  minus  ResNet-50 (linear head)]
+  paired runs J = 15 | mean accuracy difference +2.71 points | 95% interval [-2.16, +7.57] | corrected t = 1.19 | p = 0.2525 | Holm-adjusted p = 1.0000
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 95/62, p=0.0104; seed 1024: 111/69, p=0.0022; seed 2026: 88/82, p=0.7015
+
+Vim-S vs ResNet-50 (linear)   [Vim-S  minus  ResNet-50 (linear head)]
+  paired runs J = 15 | mean accuracy difference +5.02 points | 95% interval [+2.28, +7.75] | corrected t = 3.93 | p = 0.0015 | Holm-adjusted p = 0.0150
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 99/47, p=0.0000; seed 1024: 111/54, p=0.0000; seed 2026: 102/61, p=0.0016
+
+Vim-S vs ViT-B/16 (linear)   [Vim-S  minus  ViT-B/16 (linear head)]
+  paired runs J = 15 | mean accuracy difference +2.31 points | 95% interval [-2.11, +6.73] | corrected t = 1.12 | p = 0.2810 | Holm-adjusted p = 1.0000
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 63/44, p=0.0814; seed 1024: 71/56, p=0.2140; seed 2026: 85/50, p=0.0033
+
+Vim-S vs ViT-B/16 + MLP   [Vim-S  minus  ViT-B/16 + MLP head]
+  paired runs J = 15 | mean accuracy difference +1.34 points | 95% interval [-2.89, +5.57] | corrected t = 0.68 | p = 0.5083 | Holm-adjusted p = 1.0000
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 88/47, p=0.0005; seed 1024: 58/63, p=0.7163; seed 2026: 52/48, p=0.7644
+
+Vim-S vs ViT-B/16 + KAN   [Vim-S  minus  ViT-B/16 + KAN head]
+  paired runs J = 15 | mean accuracy difference +0.67 points | 95% interval [-2.75, +4.09] | corrected t = 0.42 | p = 0.6809 | Holm-adjusted p = 1.0000
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 54/40, p=0.1797; seed 1024: 63/59, p=0.7861; seed 2026: 53/51, p=0.9219
+
+MLP head, ResNet-Mamba vs ViT-B/16 backbone   [ResNet-Mamba-MLP  minus  ViT-B/16 + MLP head]
+  paired runs J = 15 | mean accuracy difference -1.54 points | 95% interval [-5.45, +2.37] | corrected t = -0.85 | p = 0.4122 | Holm-adjusted p = 1.0000
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 83/79, p=0.8138; seed 1024: 55/71, p=0.1812; seed 2026: 65/99, p=0.0098
+
+KAN head, ResNet-Mamba vs ViT-B/16 backbone   [ResNet-Mamba-KAN  minus  ViT-B/16 + KAN head]
+  paired runs J = 15 | mean accuracy difference -1.74 points | 95% interval [-5.03, +1.55] | corrected t = -1.13 | p = 0.2764 | Holm-adjusted p = 1.0000
+  McNemar exact, per seed (a-only-correct / b-only-correct, p): seed 42: 53/63, p=0.4035; seed 1024: 72/94, p=0.1028; seed 2026: 63/83, p=0.1155
+
+----------------------------------------------------------------------------------------------------
+E. VERDICT ACCORDING TO THE PLAN (section 7)
+----------------------------------------------------------------------------------------------------
+E1 improves on Vision Mamba alone: +1.94 points, 95% interval [+0.46, +3.42], p = 0.0140.
+Spread of run accuracy: E1 SD 1.69 vs Vim-S SD 1.97.
+KAN vs MLP head on the same backbone: +0.47 points, 95% interval [-3.16, +4.10], p = 0.7852 (Holm over the four base-model comparisons: 0.8368) -> no significant difference (exploratory test).
+KAN vs MLP head on ViT-B/16 (second backbone): +0.67 points, 95% interval [-2.63, +3.97], p = 0.6697 (Holm over the 10 reference-model comparisons: 1.0000) -> no significant difference (exploratory test).
+Limitation to state with these numbers: image-level splits; tile/slab independence is not established. 15 runs share images across seeds/folds, so the corrected t-test is approximate.
