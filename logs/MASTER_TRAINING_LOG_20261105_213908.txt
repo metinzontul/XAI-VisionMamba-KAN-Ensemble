@@ -1,0 +1,483 @@
+[*] TRAINING STARTED. DEVICE: cuda. Log file: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/logs/MASTER_TRAINING_LOG_20261105_213908.txt
+[*] Loading and resizing the dataset once (kept in memory) ...
+/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py:127: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at ../torch/csrc/utils/tensor_numpy.cpp:206.)
+  imgs.append(torch.from_numpy(np.asarray(resize(im.convert("RGB")))).permute(2, 0, 1).contiguous())
+[*] Started 2026-11-05 21:43:51 | python 3.10.22 | Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.35
+[*] torch 2.5.1+cu121 | torchvision 0.20.1+cu121 | numpy 2.2.6
+[*] GPU: NVIDIA GeForce RTX 4080 | CUDA 12.1
+[*] Mamba selective-scan back-end: cuda (official CUDA kernel available: True)
+[*] Arguments: {"batch_size": 32, "benchmark": false, "data": "/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/O\u011fuz/dataset/Marble", "epochs": 20, "focal_gamma": 2.0, "folds": 5, "grad_clip": 1.0, "groups_csv": null, "loss": "focal", "lr": 0.0001, "models": ["vision_mamba_ctrl"], "no_pretrained": false, "num_workers": 0, "out_dir": "/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/O\u011fuz/GitHub/src2", "resume": true, "scan_backend": "auto", "seeds": [42, 1024, 2026], "tf32": true, "verify_checkpoint": true, "vim_ckpt": null, "vim_variant": "small", "weight_decay": 0.01, "with_vim_control": true}
+[*] Dataset: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/dataset/Marble | 996 images | fingerprint 5519f5e1fb02b084
+[*] Class counts: {"Medium1": 176, "Medium2": 170, "Walnut1": 199, "Walnut2": 137, "White1": 227, "White2": 87}
+[*] Split: StratifiedKFold, image-level (NO tile/slab independence established)
+[*] Optimiser AdamW lr=0.0001 wd=0.01 | const. LR | grad-clip 1.0 | batch 32 | epochs 20 | loss focal gamma=2.0 | fp32 (TF32 matmul) | final-epoch weights only
+[*] Augmentation (train only: RandomResizedCrop(224, scale 0.8-1.0), random h-flip, v-flip, rotation by k*90 deg (no zero fill)); validation: resize 224x224 + ImageNet normalisation
+[*] Vim pre-trained checkpoint: hustvl/Vim-small-midclstok/vim_s_midclstok_80p5acc.pth (other files in the repo ignored: ['vim_s_midclstok_ft_81p6acc.pth'])
+[!] weights_only=True failed for /home/tan/.cache/huggingface/hub/models--hustvl--Vim-small-midclstok/snapshots/babc4440f5fab6e08d97e371afa639c8cf98bf2c/vim_s_midclstok_80p5acc.pth; loading with weights_only=False (checkpoint comes from the official hustvl/Vim release).
+[MODEL CARD] vision_mamba_ctrl: {
+  "model": "Vision Mamba (Vim) embed_dim=384, depth=24",
+  "reference": "Zhu et al., ICML 2024 (bimamba v2, middle class token, abs. pos. embed, div2)",
+  "self_attention_layers": 0,
+  "patch_size": 16,
+  "d_state": 16,
+  "d_conv": 4,
+  "expand": 2,
+  "dt_rank": 24,
+  "drop_path_rate": 0.1,
+  "scan_backend": "cuda",
+  "parameters_total": 25413894,
+  "parameters_trainable": 25413894,
+  "pretrained_weights": "ImageNet-1k Vim-small (/home/tan/.cache/huggingface/hub/models--hustvl--Vim-small-midclstok/snapshots/babc4440f5fab6e08d97e371afa639c8cf98bf2c/vim_s_midclstok_80p5acc.pth)"
+}
+
+-------------------- SEED: 42 --------------------
+
+============================================================
+STARTING: vision_mamba_ctrl | seed 42 | fold 1/5 | train 796 / val 200
+============================================================
+[!] weights_only=True failed for /home/tan/.cache/huggingface/hub/models--hustvl--Vim-small-midclstok/snapshots/babc4440f5fab6e08d97e371afa639c8cf98bf2c/vim_s_midclstok_80p5acc.pth; loading with weights_only=False (checkpoint comes from the official hustvl/Vim release).
+Epoch [1/20] - Train Loss: 0.5709, Train Acc: 62.94% | Val Loss: 0.3339, Val Acc: 73.50% [5.4s]
+Epoch [2/20] - Train Loss: 0.2702, Train Acc: 79.27% | Val Loss: 0.2567, Val Acc: 76.50% [4.8s]
+Epoch [3/20] - Train Loss: 0.1829, Train Acc: 83.67% | Val Loss: 0.2713, Val Acc: 80.00% [4.8s]
+Epoch [4/20] - Train Loss: 0.1879, Train Acc: 83.04% | Val Loss: 0.1227, Val Acc: 90.50% [4.8s]
+Epoch [5/20] - Train Loss: 0.1432, Train Acc: 87.69% | Val Loss: 0.1060, Val Acc: 89.00% [4.9s]
+Epoch [6/20] - Train Loss: 0.1344, Train Acc: 86.68% | Val Loss: 0.2475, Val Acc: 82.50% [4.9s]
+Epoch [7/20] - Train Loss: 0.1148, Train Acc: 88.94% | Val Loss: 0.1515, Val Acc: 86.00% [4.8s]
+Epoch [8/20] - Train Loss: 0.1579, Train Acc: 85.43% | Val Loss: 0.1247, Val Acc: 90.50% [4.9s]
+Epoch [9/20] - Train Loss: 0.0757, Train Acc: 91.83% | Val Loss: 0.2531, Val Acc: 85.00% [5.0s]
+Epoch [10/20] - Train Loss: 0.0668, Train Acc: 93.47% | Val Loss: 0.3565, Val Acc: 83.50% [5.0s]
+Epoch [11/20] - Train Loss: 0.0663, Train Acc: 93.09% | Val Loss: 0.1463, Val Acc: 89.50% [4.9s]
+Epoch [12/20] - Train Loss: 0.0758, Train Acc: 92.59% | Val Loss: 0.5239, Val Acc: 72.00% [4.9s]
+Epoch [13/20] - Train Loss: 0.0776, Train Acc: 93.47% | Val Loss: 0.4132, Val Acc: 84.00% [4.9s]
+Epoch [14/20] - Train Loss: 0.0921, Train Acc: 92.21% | Val Loss: 0.1682, Val Acc: 88.50% [4.8s]
+Epoch [15/20] - Train Loss: 0.0450, Train Acc: 95.10% | Val Loss: 0.1698, Val Acc: 86.50% [4.9s]
+Epoch [16/20] - Train Loss: 0.0827, Train Acc: 92.59% | Val Loss: 0.2113, Val Acc: 85.50% [4.8s]
+Epoch [17/20] - Train Loss: 0.0351, Train Acc: 95.98% | Val Loss: 0.1153, Val Acc: 90.50% [4.8s]
+Epoch [18/20] - Train Loss: 0.0245, Train Acc: 97.11% | Val Loss: 0.1325, Val Acc: 87.00% [4.8s]
+Epoch [19/20] - Train Loss: 0.0347, Train Acc: 96.23% | Val Loss: 0.1139, Val Acc: 90.50% [4.8s]
+Epoch [20/20] - Train Loss: 0.0308, Train Acc: 96.86% | Val Loss: 0.1429, Val Acc: 91.50% [4.9s]
+/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py:345: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  chk.load_state_dict(torch.load(w_path, map_location=device))
+-> Fold 1 Completed. Final (Epoch 20) Validation Accuracy: 91.50%. Weights saved: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/weights/vision_mamba_ctrl_v2_seed_42_fold_1_epoch20.pth
+   macro-F1 91.68% | recall per class: Medium1 91.7, Medium2 100.0, Walnut1 82.1, Walnut2 75.0, White1 100.0, White2 100.0
+
+============================================================
+STARTING: vision_mamba_ctrl | seed 42 | fold 2/5 | train 797 / val 199
+============================================================
+[!] weights_only=True failed for /home/tan/.cache/huggingface/hub/models--hustvl--Vim-small-midclstok/snapshots/babc4440f5fab6e08d97e371afa639c8cf98bf2c/vim_s_midclstok_80p5acc.pth; loading with weights_only=False (checkpoint comes from the official hustvl/Vim release).
+Epoch [1/20] - Train Loss: 0.5614, Train Acc: 62.11% | Val Loss: 0.2761, Val Acc: 76.38% [5.0s]
+Epoch [2/20] - Train Loss: 0.2887, Train Acc: 75.91% | Val Loss: 0.1600, Val Acc: 86.43% [4.9s]
+Epoch [3/20] - Train Loss: 0.1980, Train Acc: 83.94% | Val Loss: 0.3498, Val Acc: 74.87% [4.8s]
+Epoch [4/20] - Train Loss: 0.1771, Train Acc: 83.94% | Val Loss: 0.1772, Val Acc: 86.93% [4.9s]
+Epoch [5/20] - Train Loss: 0.1305, Train Acc: 86.95% | Val Loss: 0.2481, Val Acc: 84.42% [4.8s]
+Epoch [6/20] - Train Loss: 0.1359, Train Acc: 89.84% | Val Loss: 0.1674, Val Acc: 86.93% [4.9s]
+Epoch [7/20] - Train Loss: 0.0895, Train Acc: 91.47% | Val Loss: 0.1211, Val Acc: 88.94% [4.9s]
+Epoch [8/20] - Train Loss: 0.0921, Train Acc: 91.97% | Val Loss: 0.1738, Val Acc: 87.94% [4.9s]
+Epoch [9/20] - Train Loss: 0.0686, Train Acc: 94.48% | Val Loss: 0.1547, Val Acc: 90.45% [4.8s]
+Epoch [10/20] - Train Loss: 0.0772, Train Acc: 91.22% | Val Loss: 0.1536, Val Acc: 90.95% [4.9s]
+Epoch [11/20] - Train Loss: 0.0582, Train Acc: 95.11% | Val Loss: 0.1428, Val Acc: 90.45% [4.9s]
+Epoch [12/20] - Train Loss: 0.0545, Train Acc: 94.10% | Val Loss: 0.1695, Val Acc: 87.94% [4.9s]
+Epoch [13/20] - Train Loss: 0.0624, Train Acc: 93.85% | Val Loss: 0.1064, Val Acc: 91.46% [4.9s]
+Epoch [14/20] - Train Loss: 0.0770, Train Acc: 92.85% | Val Loss: 0.1035, Val Acc: 92.96% [4.9s]
+Epoch [15/20] - Train Loss: 0.0413, Train Acc: 95.86% | Val Loss: 0.1532, Val Acc: 90.95% [4.9s]
+Epoch [16/20] - Train Loss: 0.0342, Train Acc: 96.24% | Val Loss: 0.1700, Val Acc: 91.96% [5.0s]
+Epoch [17/20] - Train Loss: 0.0539, Train Acc: 94.98% | Val Loss: 0.1967, Val Acc: 89.45% [4.9s]
+Epoch [18/20] - Train Loss: 0.0384, Train Acc: 96.24% | Val Loss: 0.1725, Val Acc: 89.45% [4.8s]
+Epoch [19/20] - Train Loss: 0.0512, Train Acc: 95.86% | Val Loss: 0.1814, Val Acc: 89.45% [4.9s]
+Epoch [20/20] - Train Loss: 0.0373, Train Acc: 96.49% | Val Loss: 0.1505, Val Acc: 91.46% [4.8s]
+/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py:345: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  chk.load_state_dict(torch.load(w_path, map_location=device))
+-> Fold 2 Completed. Final (Epoch 20) Validation Accuracy: 91.46%. Weights saved: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/weights/vision_mamba_ctrl_v2_seed_42_fold_2_epoch20.pth
+   macro-F1 91.79% | recall per class: Medium1 88.6, Medium2 91.2, Walnut1 82.5, Walnut2 89.3, White1 100.0, White2 100.0
+
+============================================================
+STARTING: vision_mamba_ctrl | seed 42 | fold 3/5 | train 797 / val 199
+============================================================
+[!] weights_only=True failed for /home/tan/.cache/huggingface/hub/models--hustvl--Vim-small-midclstok/snapshots/babc4440f5fab6e08d97e371afa639c8cf98bf2c/vim_s_midclstok_80p5acc.pth; loading with weights_only=False (checkpoint comes from the official hustvl/Vim release).
+Epoch [1/20] - Train Loss: 0.6080, Train Acc: 56.71% | Val Loss: 0.4001, Val Acc: 72.86% [5.0s]
+Epoch [2/20] - Train Loss: 0.2996, Train Acc: 75.91% | Val Loss: 0.2888, Val Acc: 78.39% [4.8s]
+Epoch [3/20] - Train Loss: 0.2040, Train Acc: 83.69% | Val Loss: 0.1629, Val Acc: 81.41% [4.8s]
+Epoch [4/20] - Train Loss: 0.1489, Train Acc: 85.32% | Val Loss: 0.1059, Val Acc: 87.94% [4.8s]
+Epoch [5/20] - Train Loss: 0.1382, Train Acc: 86.83% | Val Loss: 0.1221, Val Acc: 87.44% [4.8s]
+Epoch [6/20] - Train Loss: 0.1367, Train Acc: 88.46% | Val Loss: 0.1426, Val Acc: 89.45% [4.8s]
+Epoch [7/20] - Train Loss: 0.1293, Train Acc: 89.34% | Val Loss: 0.0932, Val Acc: 93.97% [4.9s]
+Epoch [8/20] - Train Loss: 0.1024, Train Acc: 90.21% | Val Loss: 0.1341, Val Acc: 87.94% [4.9s]
+Epoch [9/20] - Train Loss: 0.0849, Train Acc: 91.59% | Val Loss: 0.0879, Val Acc: 92.96% [4.8s]
+Epoch [10/20] - Train Loss: 0.0795, Train Acc: 92.60% | Val Loss: 0.0556, Val Acc: 94.97% [4.9s]
+Epoch [11/20] - Train Loss: 0.0567, Train Acc: 93.73% | Val Loss: 0.0767, Val Acc: 92.96% [4.8s]
+Epoch [12/20] - Train Loss: 0.0683, Train Acc: 93.10% | Val Loss: 0.1504, Val Acc: 89.45% [4.9s]
+Epoch [13/20] - Train Loss: 0.0920, Train Acc: 92.22% | Val Loss: 0.0643, Val Acc: 95.98% [4.9s]
+Epoch [14/20] - Train Loss: 0.0634, Train Acc: 94.73% | Val Loss: 0.0978, Val Acc: 91.96% [5.0s]
+Epoch [15/20] - Train Loss: 0.0665, Train Acc: 93.60% | Val Loss: 0.1097, Val Acc: 91.96% [4.9s]
+Epoch [16/20] - Train Loss: 0.0497, Train Acc: 94.60% | Val Loss: 0.0844, Val Acc: 91.46% [4.9s]
+Epoch [17/20] - Train Loss: 0.0439, Train Acc: 95.36% | Val Loss: 0.0297, Val Acc: 96.48% [5.0s]
+Epoch [18/20] - Train Loss: 0.0285, Train Acc: 96.99% | Val Loss: 0.0485, Val Acc: 95.48% [5.0s]
+Epoch [19/20] - Train Loss: 0.0447, Train Acc: 95.48% | Val Loss: 0.1066, Val Acc: 91.46% [4.9s]
+Epoch [20/20] - Train Loss: 0.0438, Train Acc: 95.11% | Val Loss: 0.0520, Val Acc: 96.48% [5.0s]
+/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py:345: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  chk.load_state_dict(torch.load(w_path, map_location=device))
+-> Fold 3 Completed. Final (Epoch 20) Validation Accuracy: 96.48%. Weights saved: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/weights/vision_mamba_ctrl_v2_seed_42_fold_3_epoch20.pth
+   macro-F1 96.61% | recall per class: Medium1 94.3, Medium2 100.0, Walnut1 92.5, Walnut2 92.6, White1 100.0, White2 100.0
+
+============================================================
+STARTING: vision_mamba_ctrl | seed 42 | fold 4/5 | train 797 / val 199
+============================================================
+[!] weights_only=True failed for /home/tan/.cache/huggingface/hub/models--hustvl--Vim-small-midclstok/snapshots/babc4440f5fab6e08d97e371afa639c8cf98bf2c/vim_s_midclstok_80p5acc.pth; loading with weights_only=False (checkpoint comes from the official hustvl/Vim release).
+Epoch [1/20] - Train Loss: 0.5563, Train Acc: 63.36% | Val Loss: 0.3514, Val Acc: 72.36% [5.0s]
+Epoch [2/20] - Train Loss: 0.2637, Train Acc: 78.54% | Val Loss: 0.1805, Val Acc: 86.93% [4.9s]
+Epoch [3/20] - Train Loss: 0.2193, Train Acc: 81.68% | Val Loss: 0.2848, Val Acc: 79.90% [4.9s]
+Epoch [4/20] - Train Loss: 0.1739, Train Acc: 85.07% | Val Loss: 0.2937, Val Acc: 81.91% [5.0s]
+Epoch [5/20] - Train Loss: 0.1601, Train Acc: 86.57% | Val Loss: 0.1525, Val Acc: 89.45% [4.9s]
+Epoch [6/20] - Train Loss: 0.0927, Train Acc: 90.59% | Val Loss: 0.1279, Val Acc: 88.44% [4.8s]
+Epoch [7/20] - Train Loss: 0.0834, Train Acc: 91.34% | Val Loss: 0.1126, Val Acc: 88.94% [4.8s]
+Epoch [8/20] - Train Loss: 0.0802, Train Acc: 91.97% | Val Loss: 0.1030, Val Acc: 92.46% [4.8s]
+Epoch [9/20] - Train Loss: 0.0600, Train Acc: 94.23% | Val Loss: 0.1818, Val Acc: 85.93% [4.8s]
+Epoch [10/20] - Train Loss: 0.0887, Train Acc: 90.46% | Val Loss: 0.1043, Val Acc: 93.97% [4.8s]
+Epoch [11/20] - Train Loss: 0.0758, Train Acc: 93.73% | Val Loss: 0.1371, Val Acc: 91.46% [4.8s]
+Epoch [12/20] - Train Loss: 0.0527, Train Acc: 95.61% | Val Loss: 0.1612, Val Acc: 87.44% [4.8s]
+Epoch [13/20] - Train Loss: 0.0510, Train Acc: 95.61% | Val Loss: 0.1585, Val Acc: 91.46% [4.8s]
+Epoch [14/20] - Train Loss: 0.0784, Train Acc: 93.10% | Val Loss: 0.1519, Val Acc: 85.93% [4.8s]
+Epoch [15/20] - Train Loss: 0.0425, Train Acc: 95.61% | Val Loss: 0.1565, Val Acc: 88.44% [4.8s]
+Epoch [16/20] - Train Loss: 0.0411, Train Acc: 96.49% | Val Loss: 0.1172, Val Acc: 93.47% [4.8s]
+Epoch [17/20] - Train Loss: 0.0274, Train Acc: 96.99% | Val Loss: 0.1544, Val Acc: 91.46% [4.8s]
+Epoch [18/20] - Train Loss: 0.0446, Train Acc: 95.61% | Val Loss: 0.2384, Val Acc: 89.45% [4.8s]
+Epoch [19/20] - Train Loss: 0.0375, Train Acc: 96.61% | Val Loss: 0.1244, Val Acc: 92.96% [4.8s]
+Epoch [20/20] - Train Loss: 0.0380, Train Acc: 96.74% | Val Loss: 0.2368, Val Acc: 88.44% [4.8s]
+/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py:345: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  chk.load_state_dict(torch.load(w_path, map_location=device))
+-> Fold 4 Completed. Final (Epoch 20) Validation Accuracy: 88.44%. Weights saved: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/weights/vision_mamba_ctrl_v2_seed_42_fold_4_epoch20.pth
+   macro-F1 88.22% | recall per class: Medium1 88.6, Medium2 97.1, Walnut1 80.0, Walnut2 63.0, White1 100.0, White2 100.0
+
+============================================================
+STARTING: vision_mamba_ctrl | seed 42 | fold 5/5 | train 797 / val 199
+============================================================
+[!] weights_only=True failed for /home/tan/.cache/huggingface/hub/models--hustvl--Vim-small-midclstok/snapshots/babc4440f5fab6e08d97e371afa639c8cf98bf2c/vim_s_midclstok_80p5acc.pth; loading with weights_only=False (checkpoint comes from the official hustvl/Vim release).
+Epoch [1/20] - Train Loss: 0.5836, Train Acc: 58.97% | Val Loss: 0.3082, Val Acc: 68.84% [5.0s]
+Epoch [2/20] - Train Loss: 0.2492, Train Acc: 76.79% | Val Loss: 0.2547, Val Acc: 76.38% [4.9s]
+Epoch [3/20] - Train Loss: 0.2139, Train Acc: 81.18% | Val Loss: 0.1401, Val Acc: 85.93% [4.9s]
+Epoch [4/20] - Train Loss: 0.1730, Train Acc: 83.69% | Val Loss: 0.1311, Val Acc: 89.45% [4.8s]
+Epoch [5/20] - Train Loss: 0.1391, Train Acc: 86.83% | Val Loss: 0.1780, Val Acc: 83.92% [4.9s]
+Epoch [6/20] - Train Loss: 0.1006, Train Acc: 89.84% | Val Loss: 0.2907, Val Acc: 81.91% [4.9s]
+Epoch [7/20] - Train Loss: 0.0888, Train Acc: 91.97% | Val Loss: 0.0868, Val Acc: 90.95% [4.8s]
+Epoch [8/20] - Train Loss: 0.1012, Train Acc: 91.59% | Val Loss: 0.0935, Val Acc: 93.97% [4.9s]
+Epoch [9/20] - Train Loss: 0.0824, Train Acc: 92.97% | Val Loss: 0.1014, Val Acc: 91.46% [4.9s]
+Epoch [10/20] - Train Loss: 0.0823, Train Acc: 91.72% | Val Loss: 0.0694, Val Acc: 93.47% [4.9s]
+Epoch [11/20] - Train Loss: 0.0816, Train Acc: 92.22% | Val Loss: 0.0670, Val Acc: 93.47% [4.8s]
+Epoch [12/20] - Train Loss: 0.0751, Train Acc: 92.22% | Val Loss: 0.0985, Val Acc: 90.95% [4.9s]
+Epoch [13/20] - Train Loss: 0.0674, Train Acc: 93.22% | Val Loss: 0.1032, Val Acc: 91.46% [5.1s]
+Epoch [14/20] - Train Loss: 0.0467, Train Acc: 95.86% | Val Loss: 0.0914, Val Acc: 91.46% [4.9s]
+Epoch [15/20] - Train Loss: 0.0569, Train Acc: 95.36% | Val Loss: 0.1073, Val Acc: 93.47% [4.9s]
+Epoch [16/20] - Train Loss: 0.0893, Train Acc: 92.97% | Val Loss: 0.0724, Val Acc: 93.97% [4.8s]
+Epoch [17/20] - Train Loss: 0.0467, Train Acc: 95.48% | Val Loss: 0.1269, Val Acc: 89.95% [4.8s]
+Epoch [18/20] - Train Loss: 0.0447, Train Acc: 96.49% | Val Loss: 0.1106, Val Acc: 92.46% [4.9s]
+Epoch [19/20] - Train Loss: 0.0356, Train Acc: 96.61% | Val Loss: 0.1767, Val Acc: 90.45% [4.9s]
+Epoch [20/20] - Train Loss: 0.0311, Train Acc: 96.36% | Val Loss: 0.1136, Val Acc: 90.95% [4.9s]
+/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py:345: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  chk.load_state_dict(torch.load(w_path, map_location=device))
+-> Fold 5 Completed. Final (Epoch 20) Validation Accuracy: 90.95%. Weights saved: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/weights/vision_mamba_ctrl_v2_seed_42_fold_5_epoch20.pth
+   macro-F1 91.41% | recall per class: Medium1 91.4, Medium2 94.1, Walnut1 82.5, Walnut2 85.2, White1 95.6, White2 100.0
+
+-------------------- SEED: 1024 --------------------
+
+============================================================
+STARTING: vision_mamba_ctrl | seed 1024 | fold 1/5 | train 796 / val 200
+============================================================
+[!] weights_only=True failed for /home/tan/.cache/huggingface/hub/models--hustvl--Vim-small-midclstok/snapshots/babc4440f5fab6e08d97e371afa639c8cf98bf2c/vim_s_midclstok_80p5acc.pth; loading with weights_only=False (checkpoint comes from the official hustvl/Vim release).
+Epoch [1/20] - Train Loss: 0.5316, Train Acc: 61.93% | Val Loss: 0.2590, Val Acc: 80.00% [5.0s]
+Epoch [2/20] - Train Loss: 0.2867, Train Acc: 76.51% | Val Loss: 0.2250, Val Acc: 83.00% [5.2s]
+Epoch [3/20] - Train Loss: 0.2238, Train Acc: 80.65% | Val Loss: 0.1436, Val Acc: 88.00% [5.1s]
+Epoch [4/20] - Train Loss: 0.1672, Train Acc: 85.18% | Val Loss: 0.1639, Val Acc: 83.50% [4.9s]
+Epoch [5/20] - Train Loss: 0.0967, Train Acc: 91.21% | Val Loss: 0.1391, Val Acc: 89.00% [5.0s]
+Epoch [6/20] - Train Loss: 0.1266, Train Acc: 88.44% | Val Loss: 0.1365, Val Acc: 86.50% [5.0s]
+Epoch [7/20] - Train Loss: 0.0949, Train Acc: 90.58% | Val Loss: 0.1656, Val Acc: 90.00% [5.0s]
+Epoch [8/20] - Train Loss: 0.1235, Train Acc: 87.06% | Val Loss: 0.1301, Val Acc: 90.50% [4.9s]
+Epoch [9/20] - Train Loss: 0.0805, Train Acc: 93.59% | Val Loss: 0.1384, Val Acc: 90.50% [4.9s]
+Epoch [10/20] - Train Loss: 0.0641, Train Acc: 93.47% | Val Loss: 0.1339, Val Acc: 89.50% [4.9s]
+Epoch [11/20] - Train Loss: 0.0367, Train Acc: 94.47% | Val Loss: 0.1853, Val Acc: 85.00% [4.9s]
+Epoch [12/20] - Train Loss: 0.0702, Train Acc: 93.34% | Val Loss: 0.1046, Val Acc: 91.00% [4.9s]
+Epoch [13/20] - Train Loss: 0.0458, Train Acc: 95.23% | Val Loss: 0.1183, Val Acc: 90.50% [4.9s]
+Epoch [14/20] - Train Loss: 0.0614, Train Acc: 95.10% | Val Loss: 0.0885, Val Acc: 93.00% [4.9s]
+Epoch [15/20] - Train Loss: 0.0400, Train Acc: 95.73% | Val Loss: 0.1431, Val Acc: 89.50% [4.9s]
+Epoch [16/20] - Train Loss: 0.0429, Train Acc: 95.73% | Val Loss: 0.1025, Val Acc: 93.50% [4.9s]
+Epoch [17/20] - Train Loss: 0.0380, Train Acc: 95.73% | Val Loss: 0.0795, Val Acc: 93.50% [4.9s]
+Epoch [18/20] - Train Loss: 0.0366, Train Acc: 96.73% | Val Loss: 0.1397, Val Acc: 91.00% [4.8s]
+Epoch [19/20] - Train Loss: 0.0274, Train Acc: 96.98% | Val Loss: 0.1462, Val Acc: 90.00% [4.9s]
+Epoch [20/20] - Train Loss: 0.0316, Train Acc: 96.36% | Val Loss: 0.1727, Val Acc: 90.50% [4.9s]
+/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py:345: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  chk.load_state_dict(torch.load(w_path, map_location=device))
+-> Fold 1 Completed. Final (Epoch 20) Validation Accuracy: 90.50%. Weights saved: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/weights/vision_mamba_ctrl_v2_seed_1024_fold_1_epoch20.pth
+   macro-F1 90.42% | recall per class: Medium1 91.7, Medium2 94.1, Walnut1 87.2, Walnut2 67.9, White1 100.0, White2 100.0
+
+============================================================
+STARTING: vision_mamba_ctrl | seed 1024 | fold 2/5 | train 797 / val 199
+============================================================
+[!] weights_only=True failed for /home/tan/.cache/huggingface/hub/models--hustvl--Vim-small-midclstok/snapshots/babc4440f5fab6e08d97e371afa639c8cf98bf2c/vim_s_midclstok_80p5acc.pth; loading with weights_only=False (checkpoint comes from the official hustvl/Vim release).
+Epoch [1/20] - Train Loss: 0.5455, Train Acc: 61.23% | Val Loss: 0.2042, Val Acc: 80.90% [5.0s]
+Epoch [2/20] - Train Loss: 0.2431, Train Acc: 80.93% | Val Loss: 0.1519, Val Acc: 85.93% [4.9s]
+Epoch [3/20] - Train Loss: 0.2226, Train Acc: 82.56% | Val Loss: 0.2192, Val Acc: 85.43% [4.8s]
+Epoch [4/20] - Train Loss: 0.1628, Train Acc: 85.95% | Val Loss: 0.2424, Val Acc: 82.41% [4.9s]
+Epoch [5/20] - Train Loss: 0.1332, Train Acc: 87.33% | Val Loss: 0.2751, Val Acc: 83.92% [4.9s]
+Epoch [6/20] - Train Loss: 0.1216, Train Acc: 88.21% | Val Loss: 0.2834, Val Acc: 84.92% [4.9s]
+Epoch [7/20] - Train Loss: 0.0900, Train Acc: 90.72% | Val Loss: 0.1034, Val Acc: 89.95% [4.9s]
+Epoch [8/20] - Train Loss: 0.1031, Train Acc: 91.09% | Val Loss: 0.1320, Val Acc: 87.44% [5.0s]
+Epoch [9/20] - Train Loss: 0.0792, Train Acc: 93.22% | Val Loss: 0.1420, Val Acc: 86.43% [5.0s]
+Epoch [10/20] - Train Loss: 0.0627, Train Acc: 93.48% | Val Loss: 0.1497, Val Acc: 89.95% [4.9s]
+Epoch [11/20] - Train Loss: 0.0473, Train Acc: 95.36% | Val Loss: 0.0851, Val Acc: 93.97% [4.9s]
+Epoch [12/20] - Train Loss: 0.0399, Train Acc: 95.23% | Val Loss: 0.1151, Val Acc: 90.45% [4.9s]
+Epoch [13/20] - Train Loss: 0.0423, Train Acc: 95.36% | Val Loss: 0.1264, Val Acc: 91.46% [5.0s]
+Epoch [14/20] - Train Loss: 0.0453, Train Acc: 95.23% | Val Loss: 0.1833, Val Acc: 90.95% [4.9s]
+Epoch [15/20] - Train Loss: 0.0492, Train Acc: 95.23% | Val Loss: 0.1391, Val Acc: 90.95% [4.9s]
+Epoch [16/20] - Train Loss: 0.0474, Train Acc: 95.36% | Val Loss: 0.1372, Val Acc: 92.46% [4.9s]
+Epoch [17/20] - Train Loss: 0.0276, Train Acc: 96.36% | Val Loss: 0.1988, Val Acc: 90.95% [5.0s]
+Epoch [18/20] - Train Loss: 0.0487, Train Acc: 95.11% | Val Loss: 0.1470, Val Acc: 90.45% [4.8s]
+Epoch [19/20] - Train Loss: 0.0478, Train Acc: 95.86% | Val Loss: 0.0924, Val Acc: 93.47% [4.9s]
+Epoch [20/20] - Train Loss: 0.0260, Train Acc: 97.62% | Val Loss: 0.1615, Val Acc: 90.45% [4.9s]
+/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py:345: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  chk.load_state_dict(torch.load(w_path, map_location=device))
+-> Fold 2 Completed. Final (Epoch 20) Validation Accuracy: 90.45%. Weights saved: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/weights/vision_mamba_ctrl_v2_seed_1024_fold_2_epoch20.pth
+   macro-F1 91.07% | recall per class: Medium1 82.9, Medium2 97.1, Walnut1 87.5, Walnut2 85.7, White1 93.3, White2 100.0
+
+============================================================
+STARTING: vision_mamba_ctrl | seed 1024 | fold 3/5 | train 797 / val 199
+============================================================
+[!] weights_only=True failed for /home/tan/.cache/huggingface/hub/models--hustvl--Vim-small-midclstok/snapshots/babc4440f5fab6e08d97e371afa639c8cf98bf2c/vim_s_midclstok_80p5acc.pth; loading with weights_only=False (checkpoint comes from the official hustvl/Vim release).
+Epoch [1/20] - Train Loss: 0.5513, Train Acc: 63.24% | Val Loss: 0.2599, Val Acc: 78.39% [5.0s]
+Epoch [2/20] - Train Loss: 0.2541, Train Acc: 79.30% | Val Loss: 0.2663, Val Acc: 74.87% [4.9s]
+Epoch [3/20] - Train Loss: 0.2159, Train Acc: 83.19% | Val Loss: 0.1610, Val Acc: 86.93% [5.0s]
+Epoch [4/20] - Train Loss: 0.1426, Train Acc: 87.20% | Val Loss: 0.1023, Val Acc: 85.93% [4.9s]
+Epoch [5/20] - Train Loss: 0.1820, Train Acc: 85.95% | Val Loss: 0.2629, Val Acc: 80.40% [4.9s]
+Epoch [6/20] - Train Loss: 0.1065, Train Acc: 89.84% | Val Loss: 0.1257, Val Acc: 89.45% [4.8s]
+Epoch [7/20] - Train Loss: 0.1079, Train Acc: 89.34% | Val Loss: 0.1231, Val Acc: 88.94% [4.8s]
+Epoch [8/20] - Train Loss: 0.1150, Train Acc: 88.58% | Val Loss: 0.1047, Val Acc: 91.46% [4.9s]
+Epoch [9/20] - Train Loss: 0.1039, Train Acc: 89.96% | Val Loss: 0.1088, Val Acc: 86.93% [4.9s]
+Epoch [10/20] - Train Loss: 0.0726, Train Acc: 92.60% | Val Loss: 0.1201, Val Acc: 86.43% [5.0s]
+Epoch [11/20] - Train Loss: 0.0722, Train Acc: 94.35% | Val Loss: 0.1676, Val Acc: 87.44% [5.0s]
+Epoch [12/20] - Train Loss: 0.1383, Train Acc: 87.70% | Val Loss: 0.0939, Val Acc: 93.47% [4.9s]
+Epoch [13/20] - Train Loss: 0.0734, Train Acc: 93.60% | Val Loss: 0.1037, Val Acc: 92.46% [5.0s]
+Epoch [14/20] - Train Loss: 0.0469, Train Acc: 95.61% | Val Loss: 0.2071, Val Acc: 84.42% [5.0s]
+Epoch [15/20] - Train Loss: 0.0323, Train Acc: 97.37% | Val Loss: 0.1229, Val Acc: 92.46% [5.0s]
+Epoch [16/20] - Train Loss: 0.0468, Train Acc: 95.48% | Val Loss: 0.0944, Val Acc: 91.46% [4.9s]
+Epoch [17/20] - Train Loss: 0.0442, Train Acc: 95.48% | Val Loss: 0.2424, Val Acc: 86.93% [4.9s]
+Epoch [18/20] - Train Loss: 0.0376, Train Acc: 96.24% | Val Loss: 0.1318, Val Acc: 90.45% [4.9s]
+Epoch [19/20] - Train Loss: 0.0313, Train Acc: 96.49% | Val Loss: 0.1749, Val Acc: 87.44% [5.0s]
+Epoch [20/20] - Train Loss: 0.0462, Train Acc: 96.36% | Val Loss: 0.1014, Val Acc: 93.97% [5.0s]
+/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py:345: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  chk.load_state_dict(torch.load(w_path, map_location=device))
+-> Fold 3 Completed. Final (Epoch 20) Validation Accuracy: 93.97%. Weights saved: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/weights/vision_mamba_ctrl_v2_seed_1024_fold_3_epoch20.pth
+   macro-F1 94.17% | recall per class: Medium1 91.4, Medium2 91.2, Walnut1 90.0, Walnut2 92.6, White1 100.0, White2 100.0
+
+============================================================
+STARTING: vision_mamba_ctrl | seed 1024 | fold 4/5 | train 797 / val 199
+============================================================
+[!] weights_only=True failed for /home/tan/.cache/huggingface/hub/models--hustvl--Vim-small-midclstok/snapshots/babc4440f5fab6e08d97e371afa639c8cf98bf2c/vim_s_midclstok_80p5acc.pth; loading with weights_only=False (checkpoint comes from the official hustvl/Vim release).
+Epoch [1/20] - Train Loss: 0.6122, Train Acc: 58.85% | Val Loss: 0.2382, Val Acc: 79.90% [5.1s]
+Epoch [2/20] - Train Loss: 0.2259, Train Acc: 80.18% | Val Loss: 0.2634, Val Acc: 82.41% [4.9s]
+Epoch [3/20] - Train Loss: 0.1758, Train Acc: 83.06% | Val Loss: 0.1317, Val Acc: 87.44% [4.9s]
+Epoch [4/20] - Train Loss: 0.1899, Train Acc: 84.57% | Val Loss: 0.1569, Val Acc: 81.91% [4.9s]
+Epoch [5/20] - Train Loss: 0.1776, Train Acc: 84.44% | Val Loss: 0.2234, Val Acc: 83.92% [4.9s]
+Epoch [6/20] - Train Loss: 0.1059, Train Acc: 91.34% | Val Loss: 0.2626, Val Acc: 83.92% [4.9s]
+Epoch [7/20] - Train Loss: 0.1192, Train Acc: 88.71% | Val Loss: 0.1842, Val Acc: 82.41% [4.9s]
+Epoch [8/20] - Train Loss: 0.1067, Train Acc: 89.84% | Val Loss: 0.1304, Val Acc: 88.44% [4.9s]
+Epoch [9/20] - Train Loss: 0.0691, Train Acc: 92.85% | Val Loss: 0.1574, Val Acc: 90.95% [4.9s]
+Epoch [10/20] - Train Loss: 0.0614, Train Acc: 93.60% | Val Loss: 0.1469, Val Acc: 90.45% [4.9s]
+Epoch [11/20] - Train Loss: 0.0570, Train Acc: 94.60% | Val Loss: 0.0924, Val Acc: 92.96% [5.0s]
+Epoch [12/20] - Train Loss: 0.0424, Train Acc: 94.48% | Val Loss: 0.1726, Val Acc: 91.96% [4.9s]
+Epoch [13/20] - Train Loss: 0.0717, Train Acc: 94.48% | Val Loss: 0.2322, Val Acc: 87.44% [4.9s]
+Epoch [14/20] - Train Loss: 0.0442, Train Acc: 95.86% | Val Loss: 0.1622, Val Acc: 90.45% [4.9s]
+Epoch [15/20] - Train Loss: 0.0372, Train Acc: 96.49% | Val Loss: 0.1484, Val Acc: 91.46% [4.8s]
+Epoch [16/20] - Train Loss: 0.0366, Train Acc: 96.11% | Val Loss: 0.2716, Val Acc: 87.44% [4.9s]
+Epoch [17/20] - Train Loss: 0.0530, Train Acc: 94.73% | Val Loss: 0.1131, Val Acc: 90.95% [4.9s]
+Epoch [18/20] - Train Loss: 0.0342, Train Acc: 96.24% | Val Loss: 0.2301, Val Acc: 87.44% [4.9s]
+Epoch [19/20] - Train Loss: 0.0235, Train Acc: 97.49% | Val Loss: 0.2016, Val Acc: 88.94% [4.9s]
+Epoch [20/20] - Train Loss: 0.0195, Train Acc: 98.12% | Val Loss: 0.2114, Val Acc: 89.95% [4.9s]
+/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py:345: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  chk.load_state_dict(torch.load(w_path, map_location=device))
+-> Fold 4 Completed. Final (Epoch 20) Validation Accuracy: 89.95%. Weights saved: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/weights/vision_mamba_ctrl_v2_seed_1024_fold_4_epoch20.pth
+   macro-F1 90.01% | recall per class: Medium1 77.1, Medium2 85.3, Walnut1 90.0, Walnut2 88.9, White1 100.0, White2 100.0
+
+============================================================
+STARTING: vision_mamba_ctrl | seed 1024 | fold 5/5 | train 797 / val 199
+============================================================
+[!] weights_only=True failed for /home/tan/.cache/huggingface/hub/models--hustvl--Vim-small-midclstok/snapshots/babc4440f5fab6e08d97e371afa639c8cf98bf2c/vim_s_midclstok_80p5acc.pth; loading with weights_only=False (checkpoint comes from the official hustvl/Vim release).
+Epoch [1/20] - Train Loss: 0.5207, Train Acc: 62.23% | Val Loss: 0.2124, Val Acc: 81.91% [5.0s]
+Epoch [2/20] - Train Loss: 0.2418, Train Acc: 78.29% | Val Loss: 0.1867, Val Acc: 84.42% [4.8s]
+Epoch [3/20] - Train Loss: 0.2015, Train Acc: 81.81% | Val Loss: 0.1231, Val Acc: 87.94% [4.8s]
+Epoch [4/20] - Train Loss: 0.1507, Train Acc: 84.44% | Val Loss: 0.1652, Val Acc: 86.93% [4.9s]
+Epoch [5/20] - Train Loss: 0.1338, Train Acc: 87.33% | Val Loss: 0.1331, Val Acc: 86.93% [4.8s]
+Epoch [6/20] - Train Loss: 0.1299, Train Acc: 88.71% | Val Loss: 0.1704, Val Acc: 84.42% [4.8s]
+Epoch [7/20] - Train Loss: 0.1634, Train Acc: 85.45% | Val Loss: 0.1904, Val Acc: 85.43% [4.8s]
+Epoch [8/20] - Train Loss: 0.1050, Train Acc: 90.72% | Val Loss: 0.1886, Val Acc: 80.90% [4.9s]
+Epoch [9/20] - Train Loss: 0.1135, Train Acc: 88.71% | Val Loss: 0.2233, Val Acc: 83.92% [4.9s]
+Epoch [10/20] - Train Loss: 0.0889, Train Acc: 91.97% | Val Loss: 0.1185, Val Acc: 88.44% [4.8s]
+Epoch [11/20] - Train Loss: 0.0703, Train Acc: 93.73% | Val Loss: 0.1032, Val Acc: 90.45% [4.9s]
+Epoch [12/20] - Train Loss: 0.0494, Train Acc: 95.36% | Val Loss: 0.2407, Val Acc: 83.92% [4.8s]
+Epoch [13/20] - Train Loss: 0.0621, Train Acc: 92.47% | Val Loss: 0.1389, Val Acc: 88.94% [4.9s]
+Epoch [14/20] - Train Loss: 0.0530, Train Acc: 95.23% | Val Loss: 0.0620, Val Acc: 91.46% [4.9s]
+Epoch [15/20] - Train Loss: 0.0584, Train Acc: 94.10% | Val Loss: 0.1269, Val Acc: 91.46% [4.8s]
+Epoch [16/20] - Train Loss: 0.0485, Train Acc: 94.48% | Val Loss: 0.0933, Val Acc: 93.47% [4.8s]
+Epoch [17/20] - Train Loss: 0.0609, Train Acc: 94.23% | Val Loss: 0.1712, Val Acc: 87.44% [4.9s]
+Epoch [18/20] - Train Loss: 0.0458, Train Acc: 95.36% | Val Loss: 0.1992, Val Acc: 89.95% [5.0s]
+Epoch [19/20] - Train Loss: 0.0542, Train Acc: 94.60% | Val Loss: 0.2145, Val Acc: 87.44% [5.0s]
+Epoch [20/20] - Train Loss: 0.0492, Train Acc: 95.48% | Val Loss: 0.0818, Val Acc: 91.96% [5.0s]
+/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py:345: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  chk.load_state_dict(torch.load(w_path, map_location=device))
+-> Fold 5 Completed. Final (Epoch 20) Validation Accuracy: 91.96%. Weights saved: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/weights/vision_mamba_ctrl_v2_seed_1024_fold_5_epoch20.pth
+   macro-F1 92.04% | recall per class: Medium1 88.6, Medium2 94.1, Walnut1 90.0, Walnut2 77.8, White1 100.0, White2 100.0
+
+-------------------- SEED: 2026 --------------------
+
+============================================================
+STARTING: vision_mamba_ctrl | seed 2026 | fold 1/5 | train 796 / val 200
+============================================================
+[!] weights_only=True failed for /home/tan/.cache/huggingface/hub/models--hustvl--Vim-small-midclstok/snapshots/babc4440f5fab6e08d97e371afa639c8cf98bf2c/vim_s_midclstok_80p5acc.pth; loading with weights_only=False (checkpoint comes from the official hustvl/Vim release).
+Epoch [1/20] - Train Loss: 0.4992, Train Acc: 63.57% | Val Loss: 0.2771, Val Acc: 76.00% [5.1s]
+Epoch [2/20] - Train Loss: 0.2424, Train Acc: 79.15% | Val Loss: 0.2021, Val Acc: 84.00% [4.9s]
+Epoch [3/20] - Train Loss: 0.1841, Train Acc: 83.67% | Val Loss: 0.1139, Val Acc: 90.00% [4.9s]
+Epoch [4/20] - Train Loss: 0.1553, Train Acc: 84.80% | Val Loss: 0.2130, Val Acc: 84.50% [4.9s]
+Epoch [5/20] - Train Loss: 0.1546, Train Acc: 84.67% | Val Loss: 0.1679, Val Acc: 84.50% [4.9s]
+Epoch [6/20] - Train Loss: 0.0936, Train Acc: 89.45% | Val Loss: 0.1655, Val Acc: 91.00% [4.9s]
+Epoch [7/20] - Train Loss: 0.1068, Train Acc: 88.19% | Val Loss: 0.1264, Val Acc: 90.50% [4.8s]
+Epoch [8/20] - Train Loss: 0.0667, Train Acc: 92.34% | Val Loss: 0.0533, Val Acc: 95.50% [4.9s]
+Epoch [9/20] - Train Loss: 0.0739, Train Acc: 91.46% | Val Loss: 0.0444, Val Acc: 95.00% [4.9s]
+Epoch [10/20] - Train Loss: 0.0569, Train Acc: 93.59% | Val Loss: 0.1879, Val Acc: 89.00% [4.9s]
+Epoch [11/20] - Train Loss: 0.0993, Train Acc: 90.83% | Val Loss: 0.0937, Val Acc: 95.50% [4.9s]
+Epoch [12/20] - Train Loss: 0.0868, Train Acc: 91.71% | Val Loss: 0.0874, Val Acc: 92.50% [4.9s]
+Epoch [13/20] - Train Loss: 0.0913, Train Acc: 93.47% | Val Loss: 0.1699, Val Acc: 84.00% [4.8s]
+Epoch [14/20] - Train Loss: 0.0668, Train Acc: 93.84% | Val Loss: 0.0913, Val Acc: 94.50% [4.9s]
+Epoch [15/20] - Train Loss: 0.0496, Train Acc: 95.60% | Val Loss: 0.1082, Val Acc: 92.00% [4.9s]
+Epoch [16/20] - Train Loss: 0.0403, Train Acc: 96.48% | Val Loss: 0.0961, Val Acc: 91.00% [4.9s]
+Epoch [17/20] - Train Loss: 0.0607, Train Acc: 94.35% | Val Loss: 0.0471, Val Acc: 96.50% [4.9s]
+Epoch [18/20] - Train Loss: 0.0239, Train Acc: 96.61% | Val Loss: 0.1207, Val Acc: 91.00% [4.9s]
+Epoch [19/20] - Train Loss: 0.0302, Train Acc: 96.48% | Val Loss: 0.2130, Val Acc: 89.50% [4.9s]
+Epoch [20/20] - Train Loss: 0.0334, Train Acc: 96.73% | Val Loss: 0.0937, Val Acc: 92.50% [4.9s]
+/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py:345: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  chk.load_state_dict(torch.load(w_path, map_location=device))
+-> Fold 1 Completed. Final (Epoch 20) Validation Accuracy: 92.50%. Weights saved: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/weights/vision_mamba_ctrl_v2_seed_2026_fold_1_epoch20.pth
+   macro-F1 92.37% | recall per class: Medium1 100.0, Medium2 94.1, Walnut1 87.2, Walnut2 71.4, White1 100.0, White2 100.0
+
+============================================================
+STARTING: vision_mamba_ctrl | seed 2026 | fold 2/5 | train 797 / val 199
+============================================================
+[!] weights_only=True failed for /home/tan/.cache/huggingface/hub/models--hustvl--Vim-small-midclstok/snapshots/babc4440f5fab6e08d97e371afa639c8cf98bf2c/vim_s_midclstok_80p5acc.pth; loading with weights_only=False (checkpoint comes from the official hustvl/Vim release).
+Epoch [1/20] - Train Loss: 0.5740, Train Acc: 59.10% | Val Loss: 0.2744, Val Acc: 77.39% [5.1s]
+Epoch [2/20] - Train Loss: 0.2160, Train Acc: 81.81% | Val Loss: 0.1985, Val Acc: 81.91% [4.9s]
+Epoch [3/20] - Train Loss: 0.1707, Train Acc: 84.69% | Val Loss: 0.1527, Val Acc: 83.92% [4.9s]
+Epoch [4/20] - Train Loss: 0.1296, Train Acc: 86.57% | Val Loss: 0.1963, Val Acc: 86.43% [4.9s]
+Epoch [5/20] - Train Loss: 0.1020, Train Acc: 90.72% | Val Loss: 0.1375, Val Acc: 85.93% [4.9s]
+Epoch [6/20] - Train Loss: 0.0912, Train Acc: 90.09% | Val Loss: 0.1360, Val Acc: 87.44% [4.9s]
+Epoch [7/20] - Train Loss: 0.0772, Train Acc: 91.22% | Val Loss: 0.2430, Val Acc: 84.92% [5.0s]
+Epoch [8/20] - Train Loss: 0.0884, Train Acc: 91.84% | Val Loss: 0.2460, Val Acc: 86.43% [4.9s]
+Epoch [9/20] - Train Loss: 0.0978, Train Acc: 91.22% | Val Loss: 0.0923, Val Acc: 92.96% [4.9s]
+Epoch [10/20] - Train Loss: 0.0741, Train Acc: 91.97% | Val Loss: 0.1397, Val Acc: 88.94% [4.9s]
+Epoch [11/20] - Train Loss: 0.0375, Train Acc: 95.36% | Val Loss: 0.1957, Val Acc: 89.45% [4.9s]
+Epoch [12/20] - Train Loss: 0.0541, Train Acc: 94.60% | Val Loss: 0.1423, Val Acc: 88.44% [4.8s]
+Epoch [13/20] - Train Loss: 0.0517, Train Acc: 95.11% | Val Loss: 0.1864, Val Acc: 87.44% [4.8s]
+Epoch [14/20] - Train Loss: 0.0453, Train Acc: 95.36% | Val Loss: 0.1262, Val Acc: 90.45% [4.9s]
+Epoch [15/20] - Train Loss: 0.0501, Train Acc: 95.48% | Val Loss: 0.2466, Val Acc: 85.43% [4.8s]
+Epoch [16/20] - Train Loss: 0.0356, Train Acc: 95.98% | Val Loss: 0.1594, Val Acc: 87.94% [4.9s]
+Epoch [17/20] - Train Loss: 0.0316, Train Acc: 96.36% | Val Loss: 0.1850, Val Acc: 89.95% [4.9s]
+Epoch [18/20] - Train Loss: 0.0285, Train Acc: 97.74% | Val Loss: 0.2799, Val Acc: 85.93% [4.9s]
+Epoch [19/20] - Train Loss: 0.0399, Train Acc: 96.11% | Val Loss: 0.1312, Val Acc: 90.95% [4.8s]
+Epoch [20/20] - Train Loss: 0.0224, Train Acc: 97.37% | Val Loss: 0.2376, Val Acc: 90.95% [4.9s]
+/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py:345: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  chk.load_state_dict(torch.load(w_path, map_location=device))
+-> Fold 2 Completed. Final (Epoch 20) Validation Accuracy: 90.95%. Weights saved: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/weights/vision_mamba_ctrl_v2_seed_2026_fold_2_epoch20.pth
+   macro-F1 91.24% | recall per class: Medium1 71.4, Medium2 91.2, Walnut1 87.5, Walnut2 100.0, White1 100.0, White2 100.0
+
+============================================================
+STARTING: vision_mamba_ctrl | seed 2026 | fold 3/5 | train 797 / val 199
+============================================================
+[!] weights_only=True failed for /home/tan/.cache/huggingface/hub/models--hustvl--Vim-small-midclstok/snapshots/babc4440f5fab6e08d97e371afa639c8cf98bf2c/vim_s_midclstok_80p5acc.pth; loading with weights_only=False (checkpoint comes from the official hustvl/Vim release).
+Epoch [1/20] - Train Loss: 0.5210, Train Acc: 62.23% | Val Loss: 0.2764, Val Acc: 77.39% [5.0s]
+Epoch [2/20] - Train Loss: 0.2454, Train Acc: 79.55% | Val Loss: 0.4494, Val Acc: 69.85% [4.8s]
+Epoch [3/20] - Train Loss: 0.1999, Train Acc: 82.18% | Val Loss: 0.1540, Val Acc: 86.93% [4.8s]
+Epoch [4/20] - Train Loss: 0.1469, Train Acc: 87.08% | Val Loss: 0.1053, Val Acc: 91.46% [4.9s]
+Epoch [5/20] - Train Loss: 0.1141, Train Acc: 89.08% | Val Loss: 0.1421, Val Acc: 88.94% [4.9s]
+Epoch [6/20] - Train Loss: 0.0760, Train Acc: 92.85% | Val Loss: 0.0974, Val Acc: 90.45% [4.9s]
+Epoch [7/20] - Train Loss: 0.1202, Train Acc: 89.59% | Val Loss: 0.3969, Val Acc: 74.37% [5.0s]
+Epoch [8/20] - Train Loss: 0.0875, Train Acc: 90.46% | Val Loss: 0.0966, Val Acc: 91.96% [4.9s]
+Epoch [9/20] - Train Loss: 0.0654, Train Acc: 93.73% | Val Loss: 0.0769, Val Acc: 93.97% [5.0s]
+Epoch [10/20] - Train Loss: 0.0837, Train Acc: 90.97% | Val Loss: 0.1502, Val Acc: 91.46% [4.9s]
+Epoch [11/20] - Train Loss: 0.0952, Train Acc: 91.34% | Val Loss: 0.1403, Val Acc: 89.45% [4.9s]
+Epoch [12/20] - Train Loss: 0.0632, Train Acc: 94.60% | Val Loss: 0.1474, Val Acc: 90.95% [4.9s]
+Epoch [13/20] - Train Loss: 0.0509, Train Acc: 95.73% | Val Loss: 0.1620, Val Acc: 88.94% [4.8s]
+Epoch [14/20] - Train Loss: 0.0506, Train Acc: 95.48% | Val Loss: 0.0886, Val Acc: 92.96% [4.8s]
+Epoch [15/20] - Train Loss: 0.0304, Train Acc: 96.74% | Val Loss: 0.0983, Val Acc: 91.46% [4.9s]
+Epoch [16/20] - Train Loss: 0.0303, Train Acc: 96.49% | Val Loss: 0.0960, Val Acc: 93.97% [4.8s]
+Epoch [17/20] - Train Loss: 0.0585, Train Acc: 94.48% | Val Loss: 0.1310, Val Acc: 91.96% [4.8s]
+Epoch [18/20] - Train Loss: 0.0345, Train Acc: 95.98% | Val Loss: 0.1302, Val Acc: 91.96% [4.8s]
+Epoch [19/20] - Train Loss: 0.0324, Train Acc: 96.99% | Val Loss: 0.1047, Val Acc: 91.96% [4.8s]
+Epoch [20/20] - Train Loss: 0.0441, Train Acc: 96.36% | Val Loss: 0.1946, Val Acc: 89.95% [4.8s]
+/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py:345: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  chk.load_state_dict(torch.load(w_path, map_location=device))
+-> Fold 3 Completed. Final (Epoch 20) Validation Accuracy: 89.95%. Weights saved: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/weights/vision_mamba_ctrl_v2_seed_2026_fold_3_epoch20.pth
+   macro-F1 90.15% | recall per class: Medium1 91.4, Medium2 97.1, Walnut1 60.0, Walnut2 100.0, White1 100.0, White2 100.0
+
+============================================================
+STARTING: vision_mamba_ctrl | seed 2026 | fold 4/5 | train 797 / val 199
+============================================================
+[!] weights_only=True failed for /home/tan/.cache/huggingface/hub/models--hustvl--Vim-small-midclstok/snapshots/babc4440f5fab6e08d97e371afa639c8cf98bf2c/vim_s_midclstok_80p5acc.pth; loading with weights_only=False (checkpoint comes from the official hustvl/Vim release).
+Epoch [1/20] - Train Loss: 0.5449, Train Acc: 61.48% | Val Loss: 0.2498, Val Acc: 82.41% [5.0s]
+Epoch [2/20] - Train Loss: 0.2584, Train Acc: 78.80% | Val Loss: 0.1696, Val Acc: 84.42% [4.9s]
+Epoch [3/20] - Train Loss: 0.2062, Train Acc: 82.06% | Val Loss: 0.1792, Val Acc: 81.41% [4.8s]
+Epoch [4/20] - Train Loss: 0.1516, Train Acc: 86.45% | Val Loss: 0.2308, Val Acc: 78.89% [4.8s]
+Epoch [5/20] - Train Loss: 0.1545, Train Acc: 87.08% | Val Loss: 0.2831, Val Acc: 82.41% [4.8s]
+Epoch [6/20] - Train Loss: 0.1280, Train Acc: 89.34% | Val Loss: 0.2481, Val Acc: 82.91% [4.8s]
+Epoch [7/20] - Train Loss: 0.1004, Train Acc: 90.09% | Val Loss: 0.1500, Val Acc: 88.94% [4.8s]
+Epoch [8/20] - Train Loss: 0.0919, Train Acc: 91.97% | Val Loss: 0.1816, Val Acc: 84.42% [4.9s]
+Epoch [9/20] - Train Loss: 0.0688, Train Acc: 93.10% | Val Loss: 0.1109, Val Acc: 90.95% [4.8s]
+Epoch [10/20] - Train Loss: 0.0498, Train Acc: 94.98% | Val Loss: 0.1559, Val Acc: 88.94% [4.9s]
+Epoch [11/20] - Train Loss: 0.0698, Train Acc: 92.85% | Val Loss: 0.1228, Val Acc: 87.44% [4.9s]
+Epoch [12/20] - Train Loss: 0.0352, Train Acc: 95.98% | Val Loss: 0.1214, Val Acc: 91.96% [4.9s]
+Epoch [13/20] - Train Loss: 0.0747, Train Acc: 93.60% | Val Loss: 0.0899, Val Acc: 92.96% [4.9s]
+Epoch [14/20] - Train Loss: 0.0932, Train Acc: 93.48% | Val Loss: 0.1009, Val Acc: 92.46% [4.9s]
+Epoch [15/20] - Train Loss: 0.0396, Train Acc: 96.74% | Val Loss: 0.1510, Val Acc: 90.45% [4.9s]
+Epoch [16/20] - Train Loss: 0.0467, Train Acc: 95.23% | Val Loss: 0.1548, Val Acc: 90.95% [4.8s]
+Epoch [17/20] - Train Loss: 0.0309, Train Acc: 97.24% | Val Loss: 0.1490, Val Acc: 91.46% [4.8s]
+Epoch [18/20] - Train Loss: 0.0718, Train Acc: 94.35% | Val Loss: 0.0722, Val Acc: 92.96% [4.9s]
+Epoch [19/20] - Train Loss: 0.0385, Train Acc: 96.24% | Val Loss: 0.1135, Val Acc: 90.95% [4.8s]
+Epoch [20/20] - Train Loss: 0.0833, Train Acc: 93.35% | Val Loss: 0.1568, Val Acc: 90.45% [4.8s]
+/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py:345: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  chk.load_state_dict(torch.load(w_path, map_location=device))
+-> Fold 4 Completed. Final (Epoch 20) Validation Accuracy: 90.45%. Weights saved: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/weights/vision_mamba_ctrl_v2_seed_2026_fold_4_epoch20.pth
+   macro-F1 90.88% | recall per class: Medium1 97.1, Medium2 91.2, Walnut1 75.0, Walnut2 81.5, White1 100.0, White2 100.0
+
+============================================================
+STARTING: vision_mamba_ctrl | seed 2026 | fold 5/5 | train 797 / val 199
+============================================================
+[!] weights_only=True failed for /home/tan/.cache/huggingface/hub/models--hustvl--Vim-small-midclstok/snapshots/babc4440f5fab6e08d97e371afa639c8cf98bf2c/vim_s_midclstok_80p5acc.pth; loading with weights_only=False (checkpoint comes from the official hustvl/Vim release).
+Epoch [1/20] - Train Loss: 0.5217, Train Acc: 60.98% | Val Loss: 0.3015, Val Acc: 76.88% [5.0s]
+Epoch [2/20] - Train Loss: 0.2280, Train Acc: 80.80% | Val Loss: 0.1938, Val Acc: 85.43% [4.9s]
+Epoch [3/20] - Train Loss: 0.1496, Train Acc: 86.07% | Val Loss: 0.2140, Val Acc: 80.90% [4.8s]
+Epoch [4/20] - Train Loss: 0.1379, Train Acc: 86.32% | Val Loss: 0.2790, Val Acc: 84.42% [4.9s]
+Epoch [5/20] - Train Loss: 0.1848, Train Acc: 85.45% | Val Loss: 0.1720, Val Acc: 87.44% [4.8s]
+Epoch [6/20] - Train Loss: 0.1562, Train Acc: 86.32% | Val Loss: 0.2171, Val Acc: 83.42% [4.8s]
+Epoch [7/20] - Train Loss: 0.1070, Train Acc: 89.46% | Val Loss: 0.1357, Val Acc: 90.45% [4.8s]
+Epoch [8/20] - Train Loss: 0.0582, Train Acc: 92.22% | Val Loss: 0.0934, Val Acc: 95.48% [4.8s]
+Epoch [9/20] - Train Loss: 0.0900, Train Acc: 91.84% | Val Loss: 0.1178, Val Acc: 92.96% [4.8s]
+Epoch [10/20] - Train Loss: 0.0671, Train Acc: 93.48% | Val Loss: 0.2091, Val Acc: 88.44% [4.8s]
+Epoch [11/20] - Train Loss: 0.0785, Train Acc: 92.72% | Val Loss: 0.1372, Val Acc: 91.46% [4.9s]
+Epoch [12/20] - Train Loss: 0.0339, Train Acc: 95.73% | Val Loss: 0.1520, Val Acc: 91.96% [4.8s]
+Epoch [13/20] - Train Loss: 0.0538, Train Acc: 95.23% | Val Loss: 0.2464, Val Acc: 88.94% [4.8s]
+Epoch [14/20] - Train Loss: 0.0551, Train Acc: 93.35% | Val Loss: 0.1964, Val Acc: 89.45% [4.9s]
+Epoch [15/20] - Train Loss: 0.0575, Train Acc: 94.60% | Val Loss: 0.2881, Val Acc: 79.40% [4.9s]
+Epoch [16/20] - Train Loss: 0.0924, Train Acc: 91.97% | Val Loss: 0.2168, Val Acc: 85.43% [5.0s]
+Epoch [17/20] - Train Loss: 0.0549, Train Acc: 92.97% | Val Loss: 0.1184, Val Acc: 93.47% [4.9s]
+Epoch [18/20] - Train Loss: 0.0253, Train Acc: 97.37% | Val Loss: 0.1679, Val Acc: 87.94% [4.9s]
+Epoch [19/20] - Train Loss: 0.0332, Train Acc: 96.99% | Val Loss: 0.2721, Val Acc: 86.43% [5.0s]
+Epoch [20/20] - Train Loss: 0.0361, Train Acc: 96.61% | Val Loss: 0.1306, Val Acc: 95.98% [4.8s]
+/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py:345: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  chk.load_state_dict(torch.load(w_path, map_location=device))
+-> Fold 5 Completed. Final (Epoch 20) Validation Accuracy: 95.98%. Weights saved: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/weights/vision_mamba_ctrl_v2_seed_2026_fold_5_epoch20.pth
+   macro-F1 96.03% | recall per class: Medium1 94.3, Medium2 91.2, Walnut1 97.5, Walnut2 92.6, White1 100.0, White2 100.0
+
+==============================================================================
+SUMMARY - FINAL (EPOCH 20) WEIGHTS, no checkpoint selection. mean +- sample SD (n-1) over seed-fold runs
+==============================================================================
+model                   n_ok        Val Acc %     min     max       macro-F1 %
+vision_mamba_ctrl         15     91.70 +- 2.23   88.44   96.48     91.87 +- 2.23
+
+Per-fold table: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/results/fold_metrics_v2.csv
+
+[*] ALL TRAININGS COMPLETED. Total Duration: 24.96 minutes.
+[*] Complete screen log: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/logs/MASTER_TRAINING_LOG_20261105_213908.txt

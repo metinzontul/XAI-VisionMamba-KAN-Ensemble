@@ -1,0 +1,19 @@
+[*] SECONDARY TRAINING STARTED. DEVICE: cuda. Log file: .\logs\SECONDARY_TRAINING_LOG_20261106_175121.txt
+[*] Loading and resizing the dataset once (kept in memory) ...
+C:\Users\ASUS-WORKSTATION\Desktop\metin\Oğuz\GitHub\src2\master_train.py:127: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\builder\windows\pytorch\torch\csrc\utils\tensor_numpy.cpp:212.)
+  imgs.append(torch.from_numpy(np.asarray(resize(im.convert("RGB")))).permute(2, 0, 1).contiguous())
+[*] Started 2026-11-06 17:55:46 | python 3.10.20 | Windows-10-10.0.22000-SP0
+[*] torch 2.5.1+cu121 | torchvision 0.20.1+cu121 | numpy 2.0.1
+[*] GPU: NVIDIA GeForce RTX 4080 | CUDA 12.1
+[*] Mamba selective-scan back-end: torch (official CUDA kernel available: False)
+[*] Arguments: {"batch_size": 32, "benchmark": true, "data": "C:\\Users\\ASUS-WORKSTATION\\Desktop\\metin\\O\u011fuz\\dataset\\Marble", "epochs": 20, "focal_gamma": 2.0, "folds": 5, "grad_clip": 1.0, "groups_csv": null, "loss": "focal", "lr": 0.0001, "models": null, "no_pretrained": false, "num_workers": 0, "out_dir": ".", "resume": true, "scan_backend": "auto", "seeds": [42, 1024, 2026], "tf32": true, "verify_checkpoint": true, "vim_ckpt": null, "vim_variant": "small", "weight_decay": 0.01, "with_vim_control": false}
+[*] Dataset: C:\Users\ASUS-WORKSTATION\Desktop\metin\Oğuz\dataset\Marble | 996 images | fingerprint f243f269348c5103
+[*] Class counts: {"Medium1": 176, "Medium2": 170, "Walnut1": 199, "Walnut2": 137, "White1": 227, "White2": 87}
+[*] Split: StratifiedKFold, image-level (NO tile/slab independence established)
+[*] Optimiser AdamW lr=0.0001 wd=0.01 | const. LR | grad-clip 1.0 | batch 32 | epochs 20 | loss focal gamma=2.0 | fp32 (TF32 matmul) | final-epoch weights only
+[*] Augmentation (train only: RandomResizedCrop(224, scale 0.8-1.0), random h-flip, v-flip, rotation by k*90 deg (no zero fill)); validation: resize 224x224 + ImageNet normalisation
+[benchmark] resnet50               0.06 s/train-iter -> ~   1.7 s/epoch -> ~  0.1 h for 15 runs, peak GPU memory 2.9 GiB | params 23,520,326
+[benchmark] vit_b16                0.14 s/train-iter -> ~   3.7 s/epoch -> ~  0.3 h for 15 runs, peak GPU memory 4.8 GiB | params 85,803,270
+[benchmark] vit_b16_mlp            0.14 s/train-iter -> ~   3.8 s/epoch -> ~  0.3 h for 15 runs, peak GPU memory 4.8 GiB | params 85,997,062
+[benchmark] vit_b16_kan            0.14 s/train-iter -> ~   3.7 s/epoch -> ~  0.3 h for 15 runs, peak GPU memory 4.8 GiB | params 85,840,128
+[benchmark] ESTIMATED TOTAL (data loading excluded): ~1.1 h

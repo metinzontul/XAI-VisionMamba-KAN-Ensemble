@@ -1,0 +1,9 @@
+model,n,acc_mean,acc_sd,acc_min,acc_max,note
+ViT-MLP,15,86.55,3.15,81.41,90.45,"seeds 1024 and 2026, fold 5 have identical accuracy in the original log; checked, both runs are genuine (coincidence)"
+ViT-KAN,15,66.60,4.32,60.30,74.87,
+ViT-KAN-Head,15,84.47,4.57,75.38,92.46,
+ViT-ResNet-MLP,15,87.79,4.28,78.00,91.96,
+ViT-ResNet-KAN,15,86.81,3.71,77.89,91.46,
+ResNet-MLP,15,87.72,2.20,83.92,91.00,
+ResNet-KAN,15,86.51,2.27,82.41,89.50,
+Early Hybrid,15,85.14,5.37,71.36,90.95,workstation run (same environment as all other experiments); a separate Colab run gave 84.98 +- 6.85

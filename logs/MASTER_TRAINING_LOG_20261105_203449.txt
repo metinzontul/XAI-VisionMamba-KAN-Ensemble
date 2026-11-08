@@ -1,0 +1,26 @@
+[*] TRAINING STARTED. DEVICE: cuda. Log file: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/logs/MASTER_TRAINING_LOG_20261105_203449.txt
+[*] Loading and resizing the dataset once (kept in memory) ...
+/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py:127: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at ../torch/csrc/utils/tensor_numpy.cpp:206.)
+  imgs.append(torch.from_numpy(np.asarray(resize(im.convert("RGB")))).permute(2, 0, 1).contiguous())
+[*] Started 2026-11-05 20:39:20 | python 3.10.22 | Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.35
+[*] torch 2.5.1+cu121 | torchvision 0.20.1+cu121 | numpy 2.2.6
+[*] GPU: NVIDIA GeForce RTX 4080 | CUDA 12.1
+[*] Mamba selective-scan back-end: cuda (official CUDA kernel available: True)
+[*] Arguments: {"batch_size": 32, "benchmark": false, "data": "/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/O\u011fuz/dataset/Marble", "epochs": 20, "focal_gamma": 2.0, "folds": 5, "grad_clip": 1.0, "groups_csv": null, "loss": "focal", "lr": 0.0001, "models": ["vision_mamba"], "no_pretrained": false, "num_workers": 0, "out_dir": "/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/O\u011fuz/GitHub/src2", "resume": true, "scan_backend": "auto", "seeds": [42, 1024, 2026], "tf32": true, "verify_checkpoint": true, "vim_ckpt": null, "vim_variant": "small", "weight_decay": 0.01, "with_vim_control": false}
+[*] Dataset: /mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/dataset/Marble | 996 images | fingerprint 5519f5e1fb02b084
+[*] Class counts: {"Medium1": 176, "Medium2": 170, "Walnut1": 199, "Walnut2": 137, "White1": 227, "White2": 87}
+[*] Split: StratifiedKFold, image-level (NO tile/slab independence established)
+[*] Optimiser AdamW lr=0.0001 wd=0.01 | const. LR | grad-clip 1.0 | batch 32 | epochs 20 | loss focal gamma=2.0 | fp32 (TF32 matmul) | final-epoch weights only
+[*] Augmentation (train only: RandomResizedCrop(224, scale 0.8-1.0), random h-flip, v-flip, rotation by k*90 deg (no zero fill)); validation: resize 224x224 + ImageNet normalisation
+Traceback (most recent call last):
+  File "/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py", line 544, in <module>
+    sys.exit(main())
+  File "/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py", line 516, in main
+    m = spec["build"](not args.no_pretrained)
+  File "/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py", line 226, in <lambda>
+    dict(name="vision_mamba", build=lambda pretrained: vim(pretrained), seed_offset=0),
+  File "/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/master_train.py", line 221, in vim
+    cache["p"] = resolve_pretrained_path(args.vim_variant, args.vim_ckpt)
+  File "/mnt/c/Users/ASUS-WORKSTATION/Desktop/metin/Oğuz/GitHub/src2/vision_mamba_train.py", line 140, in resolve_pretrained_path
+    raise RuntimeError(f"Expected exactly one .pth in {repo}, found {files}. "
+RuntimeError: Expected exactly one .pth in hustvl/Vim-small-midclstok, found ['vim_s_midclstok_80p5acc.pth', 'vim_s_midclstok_ft_81p6acc.pth']. Download it manually and pass --vim_ckpt <file>.

@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this code or the data, please cite the article and the dataset."
+title: "Vision Mamba, ViT and ResNet-Mamba hybrids for marble texture classification: code"
+authors:
+  - family-names: Zontul
+    given-names: Metin
+  - family-names: Kaynar
+    given-names: Oguz
+  - family-names: Yuksek
+    given-names: "A. G."
+  - family-names: Karateke
+    given-names: Seda
+license: MIT
+repository-code: "https://github.com/metinzontul/XAI-VisionMamba-KAN-Ensemble"
+references:
+  - type: dataset
+    title: "Marble tile images for six-class quality classification (996 images, expert-labelled)"
+    doi: 10.5281/zenodo.24053101
+    authors:
+      - family-names: Zontul
+        given-names: Metin
+      - family-names: Kaynar
+        given-names: Oguz
+      - family-names: Yuksek
+        given-names: "A. G."
+      - family-names: Karateke
+        given-names: Seda

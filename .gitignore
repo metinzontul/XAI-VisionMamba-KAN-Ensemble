@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+# dataset is not versioned (Zenodo, see data/README.md)
+data/*
+!data/.gitkeep
+!data/README.md
+weights/
+*.pth
+xai_cache.pkl
